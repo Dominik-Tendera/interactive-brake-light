@@ -7,7 +7,5 @@
 
 #ifndef APP_H_
 #define APP_H_
-
-
-
+int mainApp(void);
 #endif /* APP_H_ */
