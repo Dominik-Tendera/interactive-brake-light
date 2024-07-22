@@ -57,12 +57,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define Fan_PWM_Pin GPIO_PIN_2
-#define Fan_PWM_GPIO_Port GPIOA
 #define Latch_Pin GPIO_PIN_4
 #define Latch_GPIO_Port GPIOA
-#define OutEnable_Pin GPIO_PIN_1
-#define OutEnable_GPIO_Port GPIOB
 #define LED_Pin GPIO_PIN_9
 #define LED_GPIO_Port GPIOA
 
