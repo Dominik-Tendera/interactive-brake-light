@@ -17,6 +17,8 @@ int16_t y = 0;
 uint8_t whitespace = 6;
 uint32_t slide_delay = 30;
 uint8_t variable = 0b10000000; 			//debugowe
+extern uint8_t timeout_flag;
+extern uint8_t display_change;
 
 void set_brightness(uint16_t value)
 {
@@ -48,32 +50,10 @@ void display_on(void){
 	send_display();
 }
 
-void one_pixel_on(uint8_t column, uint8_t row)
+void set_one_pixel(uint8_t column, uint8_t row)
 {
 	if(row >= 0 && row <= 7 && column >= 0 && column <= 13){
 		display_buffer[column] |= (0b00000001 << row);
-	}
-}
-
-void display_test_animation(void)
-{
-	static uint8_t led = 0;
-	static uint8_t column = 0;
-
-	if((led % 8) == 0)
-	{
-		if(led != 0)
-		{
-			display_buffer[column] = 0;
-			column++;
-			variable = 0b10000000;
-		}
-	}
-	display_buffer[column] = (variable >> (led % 8));
-	led++;
-	if(led >= 127){
-		led = 0;
-		column = 0;
 	}
 }
 
@@ -85,7 +65,7 @@ void drawChar(int x, int y, char character)
 		{
 			if(fontChars[(character-0x20)*9+1+j] & (1<<i))
 			{
-				one_pixel_on(x + (7 - i), y + j);
+				set_one_pixel(x + (7 - i), y + j);
 			}
 		}
 	}
@@ -119,11 +99,62 @@ void reset_text(void)
 	y = 0;
 }
 
-void send_display(void){
+void turn_off(enum BRAKE_LIGHT_Mode_t BRAKE_LIGHT_Mode, char* displayed_text)
+{
+	static uint32_t lastInteractiveTick = 0;
+	if(BRAKE_LIGHT_Mode == BASIC_BRAKE_LIGHT)
+	{
+		display_off();
+	}
+	else if(BRAKE_LIGHT_Mode == INTERACTIVE_BRAKE_LIGHT)
+	{
+		if(display_change)
+		{
+			display_off();
+			lastInteractiveTick = HAL_GetTick();
+			display_change = 0;
+			reset_text();
+		}
+		else if (timeout_flag)
+		{
+			display_text(displayed_text);
+		}
+		if (HAL_GetTick() - lastInteractiveTick >= INTERACTIVE_TIMEOUT)
+		{
+			lastInteractiveTick = HAL_GetTick();
+			timeout_flag = 1;
+		}
+	}
+}
+
+void send_display(void)
+{
 	HAL_GPIO_WritePin(Latch_GPIO_Port, Latch_Pin, 0);
 	HAL_SPI_Transmit_DMA(&hspi1, display_buffer, sizeof(display_buffer));
 	HAL_Delay(1);
 	HAL_GPIO_WritePin(Latch_GPIO_Port, Latch_Pin, 1);
 	HAL_Delay(1);
 	HAL_GPIO_WritePin(Latch_GPIO_Port, Latch_Pin, 0);
+}
+
+void display_test_animation(void)			//used only for debug
+{
+	static uint8_t led = 0;
+	static uint8_t column = 0;
+
+	if((led % 8) == 0)
+	{
+		if(led != 0)
+		{
+			display_buffer[column] = 0;
+			column++;
+			variable = 0b10000000;
+		}
+	}
+	display_buffer[column] = (variable >> (led % 8));
+	led++;
+	if(led >= 127){
+		led = 0;
+		column = 0;
+	}
 }
