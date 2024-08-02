@@ -50,14 +50,13 @@ int mainApp(void)
 			timeout_flag = 0;
 			display_change = 1;
 			clear_buffer();
-			drawString(1, 0, "Er");
+			draw_string(1, 0, "Er");
 			send_display();
 			break;
 
 		case DISPLAY_ANIMATION:
 			timeout_flag = 0;
 			display_change = 1;
-			clear_buffer();
 			display_text(displayed_text);
 			break;
 

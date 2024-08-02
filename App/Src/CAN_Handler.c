@@ -18,7 +18,8 @@ static can_frame BRAKE_LIGHT_FRAME;
 static can_frame HV_BMS_SLAVE_FRAME;
 static can_frame ACCU_FAN_SPEED;
 
-void CAN_Handler_Init() {
+void CAN_Handler_Init()
+{
 
 	CAN_Init(&hcan);
 
@@ -35,35 +36,35 @@ void CAN_Handler_Init() {
 	ACCU_FAN_SPEED_PERIOD, ACCU_FAN_SPEED_DLC);
 }
 
-enum BRAKE_LIGHT_Display_t BRAKE_LIGHT_GetDisplay(void) {
-	if (CAN_IsFrameActual(&BRAKE_LIGHT_FRAME)) {
+enum BRAKE_LIGHT_Display_t BRAKE_LIGHT_GetDisplay(void)
+{
+	if (CAN_IsFrameActual(&BRAKE_LIGHT_FRAME))
+	{
 		BRAKE_LIGHT_Display = BRAKE_LIGHT_FRAME.core.data[0];		//0 = OFF
-		return BRAKE_LIGHT_Display;										//1 = ON
+		return BRAKE_LIGHT_Display;									//1 = ON
 	}																//2 = ERROR
 	BRAKE_LIGHT_Display = DISPLAY_ERROR;
 	return BRAKE_LIGHT_Display;
 }
 
-uint8_t ACCU_GetFanSpeed(uint8_t fan_speed) {
+uint8_t ACCU_GetFanSpeed(uint8_t fan_speed)
+{
 	int fan_speed_temp = 0;
 	int speed_increase = 0;
 	static uint32_t latest_timestamp = 0;
-	if (latest_timestamp != ACCU_FAN_SPEED_REQUEST.recieve_time_ms) {
+	if (latest_timestamp != ACCU_FAN_SPEED_REQUEST.recieve_time_ms)
+	{
 		latest_timestamp = ACCU_FAN_SPEED_REQUEST.recieve_time_ms;
 		fan_speed_temp = ACCU_FAN_SPEED_REQUEST.core.data[1];
 		speed_increase = ACCU_FAN_SPEED_REQUEST.core.data[0];
-		if(fan_speed_temp <= 0 && fan_speed_temp >= 100)
+		if(fan_speed_temp < 0 && fan_speed_temp > 100)
 		{
 			return fan_speed;
 		}
-		if(fan_speed != 0)
+		else if(fan_speed_temp != 0)
 		{
-			if(fan_speed_temp >= 0 && fan_speed_temp <= 100)
-			{
-				return fan_speed = fan_speed_temp;
-			}
+			return fan_speed = fan_speed_temp;
 		}
-
 		else if(speed_increase == 0)
 		{
 			return fan_speed = 0;
@@ -71,9 +72,12 @@ uint8_t ACCU_GetFanSpeed(uint8_t fan_speed) {
 		else if((speed_increase >= -100) && (speed_increase <= 100))
 		{
 			fan_speed += speed_increase;
-			if (fan_speed < 0) {
+			if (fan_speed < 0)
+			{
 				fan_speed = 0;
-			} else if (fan_speed > 100) {
+			}
+			else if (fan_speed > 100)
+			{
 				fan_speed = 100;
 			}
 			return fan_speed;
@@ -82,7 +86,8 @@ uint8_t ACCU_GetFanSpeed(uint8_t fan_speed) {
 	return fan_speed;
 }
 
-void ACCU_SendFanSpeed(uint8_t fan_speed) {
+void ACCU_SendFanSpeed(uint8_t fan_speed)
+{
 	ACCU_FAN_SPEED.core.data[0] = fan_speed;
 	CAN_SendFrame_Periodically(&ACCU_FAN_SPEED);
 }

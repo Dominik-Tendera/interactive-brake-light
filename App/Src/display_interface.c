@@ -57,7 +57,7 @@ void set_one_pixel(uint8_t column, uint8_t row)
 	}
 }
 
-void drawChar(int x, int y, char character)
+void draw_char(int x, int y, char character)
 {
 	for(uint8_t j = 0; j < 7; j++)
 	{
@@ -71,11 +71,11 @@ void drawChar(int x, int y, char character)
 	}
 }
 
-void drawString(int x, int y, char* string)
+void draw_string(int x, int y, char* string)
 {
 	for(uint16_t i = 0; i < strlen(string); i++)
 	{
-		drawChar(x + (i * whitespace), y, string[i]);
+		draw_char(x + (i * whitespace), y, string[i]);
 	}
 }
 
@@ -88,7 +88,7 @@ void display_text(char* displayed_text)
 	}
 	x--;
 	clear_buffer();
-	drawString(x, y, displayed_text);
+	draw_string(x, y, displayed_text);
 	send_display();
 	HAL_Delay(slide_delay);
 }
