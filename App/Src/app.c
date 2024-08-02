@@ -55,9 +55,12 @@ int mainApp(void)
 			break;
 
 		case DISPLAY_ANIMATION:
-			timeout_flag = 0;
-			display_change = 1;
-			display_text(displayed_text);
+			if (BRAKE_LIGHT_Mode == INTERACTIVE_BRAKE_LIGHT)
+			{
+				timeout_flag = 0;
+				display_change = 1;
+				display_text(displayed_text);
+			}
 			break;
 
 		}
