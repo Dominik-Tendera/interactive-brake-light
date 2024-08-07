@@ -1,17 +1,230 @@
 
 /* CAN DATABASE HEADER */
-/* parsed from: C:\Users\kubak\Desktop\dbc\Can\RTE30\RTE_3.0_CAN1.dbc */
-/* 23/07/2024 14:17:43 */
+/* parsed from: C:\Users\User\Desktop\Can\RTE30\RTE_3.0_CAN1.dbc */
+/* 07/08/2024 19:46:13 */
 
+
+/* ANGLE_SENSOR_COMMAND */
+#define   ANGLE_SENSOR_COMMAND_ID   0x530
+#define   ANGLE_SENSOR_COMMAND_PERIOD   10000
+#define   ANGLE_SENSOR_COMMAND_DLC  6
+/*  Values  of ANGLE_SENSOR_COMMAND */
+/* Sensor1 (big_endian)*/
+#define   SENSOR1_BIT_OFS  0
+#define   SENSOR1_VALUE_TYPE   _uint8_t
+/* Sensor2 (big_endian)*/
+#define   SENSOR2_BIT_OFS  8
+#define   SENSOR2_VALUE_TYPE   _uint8_t
+/* Sensor3 (big_endian)*/
+#define   SENSOR3_BIT_OFS  16
+#define   SENSOR3_VALUE_TYPE   _uint8_t
+/* Sensor4 (big_endian)*/
+#define   SENSOR4_BIT_OFS  24
+#define   SENSOR4_VALUE_TYPE   _uint8_t
+/* SensorCommand (big_endian)*/
+#define   SENSORCOMMAND_BIT_OFS  32
+#define   SENSORCOMMAND_VALUE_TYPE   _uint8_t
+/* SensorChecksum (big_endian)*/
+#define   SENSORCHECKSUM_BIT_OFS  40
+#define   SENSORCHECKSUM_VALUE_TYPE   _uint8_t
+
+/* SW_FLAGS_POWERLIM_TCFPID */
+#define   SW_FLAGS_POWERLIM_TCFPID_ID   0xd
+#define   SW_FLAGS_POWERLIM_TCFPID_PERIOD   1000
+#define   SW_FLAGS_POWERLIM_TCFPID_DLC  8
+/*  Values  of SW_FLAGS_POWERLIM_TCFPID */
+/* ModuleActiveFlags (big_endian)*/
+#define   MODULEACTIVEFLAGS_BIT_OFS  0
+#define   MODULEACTIVEFLAGS_VALUE_TYPE   _uint8_t
+/* PowerLimit (big_endian)*/
+#define   POWERLIMIT_BIT_OFS  8
+#define   POWERLIMIT_VALUE_TYPE   _uint8_t
+/* TCFrontKp (big_endian)*/
+#define   TCFRONTKP_BIT_OFS  16
+#define   TCFRONTKP_VALUE_TYPE   _uint16_t
+/* TCFrontKi (big_endian)*/
+#define   TCFRONTKI_BIT_OFS  32
+#define   TCFRONTKI_VALUE_TYPE   _uint16_t
+/* TCFrontKd (big_endian)*/
+#define   TCFRONTKD_BIT_OFS  48
+#define   TCFRONTKD_VALUE_TYPE   _uint16_t
+
+/* SW_TVSPEED_YAWSETP_TCRPID */
+#define   SW_TVSPEED_YAWSETP_TCRPID_ID   0xe
+#define   SW_TVSPEED_YAWSETP_TCRPID_PERIOD   1000
+#define   SW_TVSPEED_YAWSETP_TCRPID_DLC  8
+/*  Values  of SW_TVSPEED_YAWSETP_TCRPID */
+/* TVStartSpeed (big_endian)*/
+#define   TVSTARTSPEED_BIT_OFS  0
+#define   TVSTARTSPEED_VALUE_TYPE   _uint8_t
+/* YawSetPoint (big_endian)*/
+#define   YAWSETPOINT_BIT_OFS  8
+#define   YAWSETPOINT_VALUE_TYPE   _uint8_t
+/* TCRearKp (big_endian)*/
+#define   TCREARKP_BIT_OFS  16
+#define   TCREARKP_VALUE_TYPE   _uint16_t
+/* TCRearKi (big_endian)*/
+#define   TCREARKI_BIT_OFS  32
+#define   TCREARKI_VALUE_TYPE   _uint16_t
+/* TCRearKd (big_endian)*/
+#define   TCREARKD_BIT_OFS  48
+#define   TCREARKD_VALUE_TYPE   _uint16_t
+
+/* SW_DRV_R2D_TVPID */
+#define   SW_DRV_R2D_TVPID_ID   0xc
+#define   SW_DRV_R2D_TVPID_PERIOD   1000
+#define   SW_DRV_R2D_TVPID_DLC  8
+/*  Values  of SW_DRV_R2D_TVPID */
+/* Driver (big_endian)*/
+#define   DRIVER_BIT_OFS  0
+#define   DRIVER_VALUE_TYPE   _uint8_t
+/* R2DSound (big_endian)*/
+#define   R2DSOUND_BIT_OFS  8
+#define   R2DSOUND_VALUE_TYPE   _uint8_t
+/* TVKp (big_endian)*/
+#define   TVKP_BIT_OFS  16
+#define   TVKP_VALUE_TYPE   _uint16_t
+/* TVKi (big_endian)*/
+#define   TVKI_BIT_OFS  32
+#define   TVKI_VALUE_TYPE   _uint16_t
+/* TVKd (big_endian)*/
+#define   TVKD_BIT_OFS  48
+#define   TVKD_VALUE_TYPE   _uint16_t
+
+/* SW_CFILT_POWERBAL_COEFFS */
+#define   SW_CFILT_POWERBAL_COEFFS_ID   0xf
+#define   SW_CFILT_POWERBAL_COEFFS_PERIOD   1000
+#define   SW_CFILT_POWERBAL_COEFFS_DLC  8
+/*  Values  of SW_CFILT_POWERBAL_COEFFS */
+/* ComplementaryFilter (big_endian)*/
+#define   COMPLEMENTARYFILTER_BIT_OFS  0
+#define   COMPLEMENTARYFILTER_VALUE_TYPE   _uint8_t
+/* PowerBalance_ADU (big_endian)*/
+#define   POWERBALANCE_ADU_BIT_OFS  8
+#define   POWERBALANCE_ADU_VALUE_TYPE   _int8_t
+/* UnderOverSteer_ADU (big_endian)*/
+#define   UNDEROVERSTEER_ADU_BIT_OFS  16
+#define   UNDEROVERSTEER_ADU_VALUE_TYPE   _uint8_t
+/* EPedalBrakeThreshold (big_endian)*/
+#define   EPEDALBRAKETHRESHOLD_BIT_OFS  24
+#define   EPEDALBRAKETHRESHOLD_VALUE_TYPE   _uint8_t
+/* EPedalBrakeAcceleratorThreshold (big_endian)*/
+#define   EPEDALBRAKEACCELERATORTHRESHOLD_BIT_OFS  32
+#define   EPEDALBRAKEACCELERATORTHRESHOLD_VALUE_TYPE   _uint8_t
+/* VelocityCoefficient (big_endian)*/
+#define   VELOCITYCOEFFICIENT_BIT_OFS  40
+#define   VELOCITYCOEFFICIENT_VALUE_TYPE   _uint8_t
+/* TurnCoefficient (big_endian)*/
+#define   TURNCOEFFICIENT_BIT_OFS  48
+#define   TURNCOEFFICIENT_VALUE_TYPE   _uint8_t
+/* WeightTransferCoefficient (big_endian)*/
+#define   WEIGHTTRANSFERCOEFFICIENT_BIT_OFS  56
+#define   WEIGHTTRANSFERCOEFFICIENT_VALUE_TYPE   _uint8_t
+
+/* MAIN_CFILT_POWERBAL_COEFFS */
+#define   MAIN_CFILT_POWERBAL_COEFFS_ID   0xb
+#define   MAIN_CFILT_POWERBAL_COEFFS_PERIOD   1000
+#define   MAIN_CFILT_POWERBAL_COEFFS_DLC  8
+/*  Values  of MAIN_CFILT_POWERBAL_COEFFS */
+/* ComplementaryFilter (big_endian)*/
+#define   COMPLEMENTARYFILTER_BIT_OFS  0
+#define   COMPLEMENTARYFILTER_VALUE_TYPE   _uint8_t
+/* PowerBalance_ADU (big_endian)*/
+#define   POWERBALANCE_ADU_BIT_OFS  8
+#define   POWERBALANCE_ADU_VALUE_TYPE   _int8_t
+/* UnderOverSteer_ADU (big_endian)*/
+#define   UNDEROVERSTEER_ADU_BIT_OFS  16
+#define   UNDEROVERSTEER_ADU_VALUE_TYPE   _uint8_t
+/* EPedalBrakeThreshold (big_endian)*/
+#define   EPEDALBRAKETHRESHOLD_BIT_OFS  24
+#define   EPEDALBRAKETHRESHOLD_VALUE_TYPE   _uint8_t
+/* EPedalBrakeAcceleratorThreshold (big_endian)*/
+#define   EPEDALBRAKEACCELERATORTHRESHOLD_BIT_OFS  32
+#define   EPEDALBRAKEACCELERATORTHRESHOLD_VALUE_TYPE   _uint8_t
+/* VelocityCoefficient (big_endian)*/
+#define   VELOCITYCOEFFICIENT_BIT_OFS  40
+#define   VELOCITYCOEFFICIENT_VALUE_TYPE   _uint8_t
+/* TurnCoefficient (big_endian)*/
+#define   TURNCOEFFICIENT_BIT_OFS  48
+#define   TURNCOEFFICIENT_VALUE_TYPE   _uint8_t
+/* WeightTransferCoefficient (big_endian)*/
+#define   WEIGHTTRANSFERCOEFFICIENT_BIT_OFS  56
+#define   WEIGHTTRANSFERCOEFFICIENT_VALUE_TYPE   _uint8_t
+
+/* MAIN_TVSPEED_YAWSETP_TCRPID */
+#define   MAIN_TVSPEED_YAWSETP_TCRPID_ID   0xa
+#define   MAIN_TVSPEED_YAWSETP_TCRPID_PERIOD   1000
+#define   MAIN_TVSPEED_YAWSETP_TCRPID_DLC  8
+/*  Values  of MAIN_TVSPEED_YAWSETP_TCRPID */
+/* TVStartSpeed (big_endian)*/
+#define   TVSTARTSPEED_BIT_OFS  0
+#define   TVSTARTSPEED_VALUE_TYPE   _uint8_t
+/* YawSetPoint (big_endian)*/
+#define   YAWSETPOINT_BIT_OFS  8
+#define   YAWSETPOINT_VALUE_TYPE   _uint8_t
+/* TCRearKp (big_endian)*/
+#define   TCREARKP_BIT_OFS  16
+#define   TCREARKP_VALUE_TYPE   _uint16_t
+/* TCRearKi (big_endian)*/
+#define   TCREARKI_BIT_OFS  32
+#define   TCREARKI_VALUE_TYPE   _uint16_t
+/* TCRearKd (big_endian)*/
+#define   TCREARKD_BIT_OFS  48
+#define   TCREARKD_VALUE_TYPE   _uint16_t
+
+/* MAIN_FLAGS_POWERLIM_TCFPID */
+#define   MAIN_FLAGS_POWERLIM_TCFPID_ID   0x9
+#define   MAIN_FLAGS_POWERLIM_TCFPID_PERIOD   1000
+#define   MAIN_FLAGS_POWERLIM_TCFPID_DLC  8
+/*  Values  of MAIN_FLAGS_POWERLIM_TCFPID */
+/* ModuleActiveFlags (big_endian)*/
+#define   MODULEACTIVEFLAGS_BIT_OFS  0
+#define   MODULEACTIVEFLAGS_VALUE_TYPE   _uint8_t
+/* PowerLimit (big_endian)*/
+#define   POWERLIMIT_BIT_OFS  8
+#define   POWERLIMIT_VALUE_TYPE   _uint8_t
+/* TCFrontKp (big_endian)*/
+#define   TCFRONTKP_BIT_OFS  16
+#define   TCFRONTKP_VALUE_TYPE   _uint16_t
+/* TCFrontKi (big_endian)*/
+#define   TCFRONTKI_BIT_OFS  32
+#define   TCFRONTKI_VALUE_TYPE   _uint16_t
+/* TCFrontKd (big_endian)*/
+#define   TCFRONTKD_BIT_OFS  48
+#define   TCFRONTKD_VALUE_TYPE   _uint16_t
+
+/* MAIN_DRV_R2D_TVPID */
+#define   MAIN_DRV_R2D_TVPID_ID   0x8
+#define   MAIN_DRV_R2D_TVPID_PERIOD   1000
+#define   MAIN_DRV_R2D_TVPID_DLC  8
+/*  Values  of MAIN_DRV_R2D_TVPID */
+/* Driver (big_endian)*/
+#define   DRIVER_BIT_OFS  0
+#define   DRIVER_VALUE_TYPE   _uint8_t
+/* R2DSound (big_endian)*/
+#define   R2DSOUND_BIT_OFS  8
+#define   R2DSOUND_VALUE_TYPE   _uint8_t
+/* TVKp (big_endian)*/
+#define   TVKP_BIT_OFS  16
+#define   TVKP_VALUE_TYPE   _uint16_t
+/* TVKi (big_endian)*/
+#define   TVKI_BIT_OFS  32
+#define   TVKI_VALUE_TYPE   _uint16_t
+/* TVKd (big_endian)*/
+#define   TVKD_BIT_OFS  48
+#define   TVKD_VALUE_TYPE   _uint16_t
 
 /* ACCU_FAN_SPEED_REQUEST */
 #define   ACCU_FAN_SPEED_REQUEST_ID   0x6
 #define   ACCU_FAN_SPEED_REQUEST_PERIOD   10000
-#define   ACCU_FAN_SPEED_REQUEST_DLC  1
+#define   ACCU_FAN_SPEED_REQUEST_DLC  2
 /*  Values  of ACCU_FAN_SPEED_REQUEST */
 /* AccuFunSpeedIncrease (little_endian)*/
 #define   ACCUFUNSPEEDINCREASE_BIT_OFS  0
 #define   ACCUFUNSPEEDINCREASE_VALUE_TYPE   _int8_t
+/* AccuFunSpeedSet (little_endian)*/
+#define   ACCUFUNSPEEDSET_BIT_OFS  8
+#define   ACCUFUNSPEEDSET_VALUE_TYPE   _uint8_t
 
 /* ACCU_FAN_SPEED */
 #define   ACCU_FAN_SPEED_ID   0x1c
@@ -22,29 +235,17 @@
 #define   ACCUFUNSPEED_BIT_OFS  0
 #define   ACCUFUNSPEED_VALUE_TYPE   _uint8_t
 
-/* MAIN_DRIVER_FLAGS */
-#define   MAIN_DRIVER_FLAGS_ID   0x1f
-#define   MAIN_DRIVER_FLAGS_PERIOD   100
-#define   MAIN_DRIVER_FLAGS_DLC  8
-/*  Values  of MAIN_DRIVER_FLAGS */
-/* currentDriver (little_endian)*/
-#define   CURRENTDRIVER_BIT_OFS  0
-#define   CURRENTDRIVER_VALUE_TYPE   _uint8_t
-/* amkModuleFlags (little_endian)*/
-#define   AMKMODULEFLAGS_BIT_OFS  8
-#define   AMKMODULEFLAGS_VALUE_TYPE   _uint8_t
-
 /* MAIN_PBALANCE_OSTEER */
 #define   MAIN_PBALANCE_OSTEER_ID   0x27
 #define   MAIN_PBALANCE_OSTEER_PERIOD   100
 #define   MAIN_PBALANCE_OSTEER_DLC  8
 /*  Values  of MAIN_PBALANCE_OSTEER */
-/* powerBalance (little_endian)*/
-#define   POWERBALANCE_BIT_OFS  0
-#define   POWERBALANCE_VALUE_TYPE   _uint32_t
-/* oversteer (little_endian)*/
-#define   OVERSTEER_BIT_OFS  32
-#define   OVERSTEER_VALUE_TYPE   _uint32_t
+/* PowerBalance_MAIN (little_endian)*/
+#define   POWERBALANCE_MAIN_BIT_OFS  0
+#define   POWERBALANCE_MAIN_VALUE_TYPE   _uint32_t
+/* UnderOverSteer_MAIN (little_endian)*/
+#define   UNDEROVERSTEER_MAIN_BIT_OFS  32
+#define   UNDEROVERSTEER_MAIN_VALUE_TYPE   _uint32_t
 
 /* MAIN_O_P_Q */
 #define   MAIN_O_P_Q_ID   0x26
@@ -73,89 +274,20 @@
 #define   L_BIT_OFS  32
 #define   L_VALUE_TYPE   _uint32_t
 
-/* MAIN_YAWSET_TVSPEED */
-#define   MAIN_YAWSET_TVSPEED_ID   0x24
-#define   MAIN_YAWSET_TVSPEED_PERIOD   100
-#define   MAIN_YAWSET_TVSPEED_DLC  8
-/*  Values  of MAIN_YAWSET_TVSPEED */
-/* yawSetpoint (little_endian)*/
-#define   YAWSETPOINT_BIT_OFS  0
-#define   YAWSETPOINT_VALUE_TYPE   _uint32_t
-/* TVStartSpeed (little_endian)*/
-#define   TVSTARTSPEED_BIT_OFS  32
-#define   TVSTARTSPEED_VALUE_TYPE   _uint32_t
-
-/* MAIN_CFILTER_PLIMIT */
-#define   MAIN_CFILTER_PLIMIT_ID   0x23
-#define   MAIN_CFILTER_PLIMIT_PERIOD   100
-#define   MAIN_CFILTER_PLIMIT_DLC  8
-/*  Values  of MAIN_CFILTER_PLIMIT */
-/* complFilter (little_endian)*/
-#define   COMPLFILTER_BIT_OFS  0
-#define   COMPLFILTER_VALUE_TYPE   _uint32_t
-/* powerLimit (little_endian)*/
-#define   POWERLIMIT_BIT_OFS  32
-#define   POWERLIMIT_VALUE_TYPE   _uint32_t
-
-/* MAIN_KD */
-#define   MAIN_KD_ID   0x22
-#define   MAIN_KD_PERIOD   100
-#define   MAIN_KD_DLC  8
-/*  Values  of MAIN_KD */
-/* TVKd (little_endian)*/
-#define   TVKD_BIT_OFS  0
-#define   TVKD_VALUE_TYPE   _uint32_t
-/* TCkd (little_endian)*/
-#define   TCKD_BIT_OFS  32
-#define   TCKD_VALUE_TYPE   _uint32_t
-
-/* MAIN_KI */
-#define   MAIN_KI_ID   0x21
-#define   MAIN_KI_PERIOD   100
-#define   MAIN_KI_DLC  8
-/*  Values  of MAIN_KI */
-/* TVKi (little_endian)*/
-#define   TVKI_BIT_OFS  0
-#define   TVKI_VALUE_TYPE   _uint32_t
-/* TCKi (little_endian)*/
-#define   TCKI_BIT_OFS  32
-#define   TCKI_VALUE_TYPE   _uint32_t
-
-/* MAIN_KP */
-#define   MAIN_KP_ID   0x20
-#define   MAIN_KP_PERIOD   100
-#define   MAIN_KP_DLC  8
-/*  Values  of MAIN_KP */
-/* TVKp (little_endian)*/
-#define   TVKP_BIT_OFS  0
-#define   TVKP_VALUE_TYPE   _uint32_t
-/* TCKp (little_endian)*/
-#define   TCKP_BIT_OFS  32
-#define   TCKP_VALUE_TYPE   _uint32_t
-
 /* LV_BMS_REQUEST_FRAME */
 #define   LV_BMS_REQUEST_FRAME_ID   0x40a
 #define   LV_BMS_REQUEST_FRAME_PERIOD   10000
 #define   LV_BMS_REQUEST_FRAME_DLC  1
 /*  Values  of LV_BMS_REQUEST_FRAME */
-/* LV_BMS_REQUEST_PowerCycle (little_endian)*/
-#define   LV_BMS_REQUEST_POWERCYCLE_BIT_OFS  0
-#define   LV_BMS_REQUEST_POWERCYCLE_VALUE_TYPE   _uint8_t
+/* LVBMSRequestPowerCycle (little_endian)*/
+#define   LVBMSREQUESTPOWERCYCLE_BIT_OFS  0
+#define   LVBMSREQUESTPOWERCYCLE_VALUE_TYPE   _uint8_t
 
-/* JAGGORACY_PROC */
-#define   JAGGORACY_PROC_ID   0x530
-#define   JAGGORACY_PROC_PERIOD   1000
-#define   JAGGORACY_PROC_DLC  8
-/*  Values  of JAGGORACY_PROC */
-/* JAGGORACY_PROC (little_endian)*/
-#define   JAGGORACY_PROC_BIT_OFS  0
-#define   JAGGORACY_PROC_VALUE_TYPE   _int8_t
-
-/* POWER_MODULE_REQUEST_ID */
-#define   POWER_MODULE_REQUEST_ID_ID   0x40f
-#define   POWER_MODULE_REQUEST_ID_PERIOD   200
-#define   POWER_MODULE_REQUEST_ID_DLC  8
-/*  Values  of POWER_MODULE_REQUEST_ID */
+/* POWER_MODULE_REQUEST */
+#define   POWER_MODULE_REQUEST_ID   0x40f
+#define   POWER_MODULE_REQUEST_PERIOD   200
+#define   POWER_MODULE_REQUEST_DLC  8
+/*  Values  of POWER_MODULE_REQUEST */
 /* Pump (big_endian)*/
 #define   PUMP_BIT_OFS  0
 #define   PUMP_VALUE_TYPE   _uint8_t
@@ -402,75 +534,75 @@
 #define   DV_SYSTEM_STATUS_PERIOD   100
 #define   DV_SYSTEM_STATUS_DLC  5
 /*  Values  of DV_SYSTEM_STATUS */
-/* AS_state (big_endian)*/
-#define   AS_STATE_BIT_OFS  7
-#define   AS_STATE_VALUE_TYPE   _uint3_t
-/* EBS_state (big_endian)*/
-#define   EBS_STATE_BIT_OFS  4
-#define   EBS_STATE_VALUE_TYPE   _uint2_t
-/* AMI_state (big_endian)*/
-#define   AMI_STATE_BIT_OFS  2
-#define   AMI_STATE_VALUE_TYPE   _uint3_t
-/* Steering_state (big_endian)*/
-#define   STEERING_STATE_BIT_OFS  15
-#define   STEERING_STATE_VALUE_TYPE   _uint1_t
-/* Service_brake_state_engaged (big_endian)*/
-#define   SERVICE_BRAKE_STATE_ENGAGED_BIT_OFS  14
-#define   SERVICE_BRAKE_STATE_ENGAGED_VALUE_TYPE   _uint2_t
-/* Lap_counter (big_endian)*/
-#define   LAP_COUNTER_BIT_OFS  12
-#define   LAP_COUNTER_VALUE_TYPE   _uint4_t
-/* Cones_count_actual (big_endian)*/
-#define   CONES_COUNT_ACTUAL_BIT_OFS  1
-#define   CONES_COUNT_ACTUAL_VALUE_TYPE   _uint8_t
-/* Cones_count_all (big_endian)*/
-#define   CONES_COUNT_ALL_BIT_OFS  9
-#define   CONES_COUNT_ALL_VALUE_TYPE   _uint17_t
+/* ASState (big_endian)*/
+#define   ASSTATE_BIT_OFS  7
+#define   ASSTATE_VALUE_TYPE   _uint3_t
+/* EBSState (big_endian)*/
+#define   EBSSTATE_BIT_OFS  4
+#define   EBSSTATE_VALUE_TYPE   _uint2_t
+/* AMIState (big_endian)*/
+#define   AMISTATE_BIT_OFS  2
+#define   AMISTATE_VALUE_TYPE   _uint3_t
+/* SteeringState (big_endian)*/
+#define   STEERINGSTATE_BIT_OFS  15
+#define   STEERINGSTATE_VALUE_TYPE   _uint1_t
+/* ServiceBrakeStateEngaged (big_endian)*/
+#define   SERVICEBRAKESTATEENGAGED_BIT_OFS  14
+#define   SERVICEBRAKESTATEENGAGED_VALUE_TYPE   _uint2_t
+/* LapCounter (big_endian)*/
+#define   LAPCOUNTER_BIT_OFS  12
+#define   LAPCOUNTER_VALUE_TYPE   _uint4_t
+/* ConesCountActual (big_endian)*/
+#define   CONESCOUNTACTUAL_BIT_OFS  1
+#define   CONESCOUNTACTUAL_VALUE_TYPE   _uint8_t
+/* ConesCountAll (big_endian)*/
+#define   CONESCOUNTALL_BIT_OFS  9
+#define   CONESCOUNTALL_VALUE_TYPE   _uint17_t
 
-/* DV_DRIVING_DYNAMICS2 */
-#define   DV_DRIVING_DYNAMICS2_ID   0x501
-#define   DV_DRIVING_DYNAMICS2_PERIOD   100
-#define   DV_DRIVING_DYNAMICS2_DLC  6
-/*  Values  of DV_DRIVING_DYNAMICS2 */
-/* Acceleration_longitudinal (big_endian)*/
-#define   ACCELERATION_LONGITUDINAL_BIT_OFS  0
-#define   ACCELERATION_LONGITUDINAL_VALUE_TYPE   _int16_t
-/* Acceleration_lateral (big_endian)*/
-#define   ACCELERATION_LATERAL_BIT_OFS  16
-#define   ACCELERATION_LATERAL_VALUE_TYPE   _int16_t
-/* Yaw_rate (big_endian)*/
-#define   YAW_RATE_BIT_OFS  32
-#define   YAW_RATE_VALUE_TYPE   _int16_t
+/* DV_DRIVING_DYNAMICS_2 */
+#define   DV_DRIVING_DYNAMICS_2_ID   0x501
+#define   DV_DRIVING_DYNAMICS_2_PERIOD   100
+#define   DV_DRIVING_DYNAMICS_2_DLC  6
+/*  Values  of DV_DRIVING_DYNAMICS_2 */
+/* AccelerationLongitudinal (big_endian)*/
+#define   ACCELERATIONLONGITUDINAL_BIT_OFS  0
+#define   ACCELERATIONLONGITUDINAL_VALUE_TYPE   _int16_t
+/* AccelerationLateral (big_endian)*/
+#define   ACCELERATIONLATERAL_BIT_OFS  16
+#define   ACCELERATIONLATERAL_VALUE_TYPE   _int16_t
+/* YawRate (big_endian)*/
+#define   YAWRATE_BIT_OFS  32
+#define   YAWRATE_VALUE_TYPE   _int16_t
 
-/* DV_DRIVING_DYNAMICS1 */
-#define   DV_DRIVING_DYNAMICS1_ID   0x500
-#define   DV_DRIVING_DYNAMICS1_PERIOD   100
-#define   DV_DRIVING_DYNAMICS1_DLC  8
-/*  Values  of DV_DRIVING_DYNAMICS1 */
-/* Speed_actual (big_endian)*/
-#define   SPEED_ACTUAL_BIT_OFS  0
-#define   SPEED_ACTUAL_VALUE_TYPE   _uint8_t
-/* Speed_target (big_endian)*/
-#define   SPEED_TARGET_BIT_OFS  8
-#define   SPEED_TARGET_VALUE_TYPE   _uint8_t
-/* Steering_angle_actual (big_endian)*/
-#define   STEERING_ANGLE_ACTUAL_BIT_OFS  16
-#define   STEERING_ANGLE_ACTUAL_VALUE_TYPE   _int8_t
-/* Steering_angle_target (big_endian)*/
-#define   STEERING_ANGLE_TARGET_BIT_OFS  24
-#define   STEERING_ANGLE_TARGET_VALUE_TYPE   _int8_t
-/* Brake_hydr_actual (big_endian)*/
-#define   BRAKE_HYDR_ACTUAL_BIT_OFS  32
-#define   BRAKE_HYDR_ACTUAL_VALUE_TYPE   _uint8_t
-/* Brake_hydr_target (big_endian)*/
-#define   BRAKE_HYDR_TARGET_BIT_OFS  40
-#define   BRAKE_HYDR_TARGET_VALUE_TYPE   _uint8_t
-/* Motor_moment_actual (big_endian)*/
-#define   MOTOR_MOMENT_ACTUAL_BIT_OFS  48
-#define   MOTOR_MOMENT_ACTUAL_VALUE_TYPE   _int8_t
-/* Motor_moment_target (big_endian)*/
-#define   MOTOR_MOMENT_TARGET_BIT_OFS  56
-#define   MOTOR_MOMENT_TARGET_VALUE_TYPE   _int8_t
+/* DV_DRIVING_DYNAMICS_1 */
+#define   DV_DRIVING_DYNAMICS_1_ID   0x500
+#define   DV_DRIVING_DYNAMICS_1_PERIOD   100
+#define   DV_DRIVING_DYNAMICS_1_DLC  8
+/*  Values  of DV_DRIVING_DYNAMICS_1 */
+/* SpeedActual (big_endian)*/
+#define   SPEEDACTUAL_BIT_OFS  0
+#define   SPEEDACTUAL_VALUE_TYPE   _uint8_t
+/* SpeedTarget (big_endian)*/
+#define   SPEEDTARGET_BIT_OFS  8
+#define   SPEEDTARGET_VALUE_TYPE   _uint8_t
+/* SteeringAngleActual (big_endian)*/
+#define   STEERINGANGLEACTUAL_BIT_OFS  16
+#define   STEERINGANGLEACTUAL_VALUE_TYPE   _int8_t
+/* SteeringAngleTarget (big_endian)*/
+#define   STEERINGANGLETARGET_BIT_OFS  24
+#define   STEERINGANGLETARGET_VALUE_TYPE   _int8_t
+/* BrakeHydrActual (big_endian)*/
+#define   BRAKEHYDRACTUAL_BIT_OFS  32
+#define   BRAKEHYDRACTUAL_VALUE_TYPE   _uint8_t
+/* BrakeHydrTarget (big_endian)*/
+#define   BRAKEHYDRTARGET_BIT_OFS  40
+#define   BRAKEHYDRTARGET_VALUE_TYPE   _uint8_t
+/* MotorMomentActual (big_endian)*/
+#define   MOTORMOMENTACTUAL_BIT_OFS  48
+#define   MOTORMOMENTACTUAL_VALUE_TYPE   _int8_t
+/* MotorMomentTarget (big_endian)*/
+#define   MOTORMOMENTTARGET_BIT_OFS  56
+#define   MOTORMOMENTTARGET_VALUE_TYPE   _int8_t
 
 /* AREO_SENS_REAR_2 */
 #define   AREO_SENS_REAR_2_ID   0x52f
@@ -597,60 +729,60 @@
 #define   ANGLE_SENSOR_RL_PERIOD   5
 #define   ANGLE_SENSOR_RL_DLC  8
 /*  Values  of ANGLE_SENSOR_RL */
-/* ANGLE_RL (big_endian)*/
-#define   ANGLE_RL_BIT_OFS  0
-#define   ANGLE_RL_VALUE_TYPE   _int32_t
-/* ANGLE_RL_Error (big_endian)*/
-#define   ANGLE_RL_ERROR_BIT_OFS  32
-#define   ANGLE_RL_ERROR_VALUE_TYPE   _uint8_t
-/* WAS_ANGLE_RL_Error (big_endian)*/
-#define   WAS_ANGLE_RL_ERROR_BIT_OFS  40
-#define   WAS_ANGLE_RL_ERROR_VALUE_TYPE   _uint8_t
+/* AngleRL (big_endian)*/
+#define   ANGLERL_BIT_OFS  0
+#define   ANGLERL_VALUE_TYPE   _int32_t
+/* AngleRLError (big_endian)*/
+#define   ANGLERLERROR_BIT_OFS  32
+#define   ANGLERLERROR_VALUE_TYPE   _uint8_t
+/* WASAngleRLError (big_endian)*/
+#define   WASANGLERLERROR_BIT_OFS  40
+#define   WASANGLERLERROR_VALUE_TYPE   _uint8_t
 
 /* ANGLE_SENSOR_RR */
 #define   ANGLE_SENSOR_RR_ID   0x52a
 #define   ANGLE_SENSOR_RR_PERIOD   5
 #define   ANGLE_SENSOR_RR_DLC  8
 /*  Values  of ANGLE_SENSOR_RR */
-/* ANGLE_RR (big_endian)*/
-#define   ANGLE_RR_BIT_OFS  0
-#define   ANGLE_RR_VALUE_TYPE   _int32_t
-/* ANGLE_RR_Error (big_endian)*/
-#define   ANGLE_RR_ERROR_BIT_OFS  32
-#define   ANGLE_RR_ERROR_VALUE_TYPE   _uint8_t
-/* WAS_ANGLE_RR_Error (big_endian)*/
-#define   WAS_ANGLE_RR_ERROR_BIT_OFS  40
-#define   WAS_ANGLE_RR_ERROR_VALUE_TYPE   _uint8_t
+/* AngleRR (big_endian)*/
+#define   ANGLERR_BIT_OFS  0
+#define   ANGLERR_VALUE_TYPE   _int32_t
+/* AngleRRError (big_endian)*/
+#define   ANGLERRERROR_BIT_OFS  32
+#define   ANGLERRERROR_VALUE_TYPE   _uint8_t
+/* WASAngleRRError (big_endian)*/
+#define   WASANGLERRERROR_BIT_OFS  40
+#define   WASANGLERRERROR_VALUE_TYPE   _uint8_t
 
 /* ANGLE_SENSOR_FL */
 #define   ANGLE_SENSOR_FL_ID   0x529
 #define   ANGLE_SENSOR_FL_PERIOD   5
 #define   ANGLE_SENSOR_FL_DLC  8
 /*  Values  of ANGLE_SENSOR_FL */
-/* ANGLE_FL (big_endian)*/
-#define   ANGLE_FL_BIT_OFS  0
-#define   ANGLE_FL_VALUE_TYPE   _int32_t
-/* ANGLE_FL_Error (big_endian)*/
-#define   ANGLE_FL_ERROR_BIT_OFS  32
-#define   ANGLE_FL_ERROR_VALUE_TYPE   _uint8_t
-/* WAS_ANGLE_FL_Error (big_endian)*/
-#define   WAS_ANGLE_FL_ERROR_BIT_OFS  40
-#define   WAS_ANGLE_FL_ERROR_VALUE_TYPE   _uint8_t
+/* AngleFL (big_endian)*/
+#define   ANGLEFL_BIT_OFS  0
+#define   ANGLEFL_VALUE_TYPE   _int32_t
+/* AngleFLError (big_endian)*/
+#define   ANGLEFLERROR_BIT_OFS  32
+#define   ANGLEFLERROR_VALUE_TYPE   _uint8_t
+/* WASAngleFLError (big_endian)*/
+#define   WASANGLEFLERROR_BIT_OFS  40
+#define   WASANGLEFLERROR_VALUE_TYPE   _uint8_t
 
 /* ANGLE_SENSOR_FR */
 #define   ANGLE_SENSOR_FR_ID   0x528
 #define   ANGLE_SENSOR_FR_PERIOD   5
 #define   ANGLE_SENSOR_FR_DLC  8
 /*  Values  of ANGLE_SENSOR_FR */
-/* ANGLE_FR (big_endian)*/
-#define   ANGLE_FR_BIT_OFS  0
-#define   ANGLE_FR_VALUE_TYPE   _int32_t
-/* ANGLE_FR_Error (big_endian)*/
-#define   ANGLE_FR_ERROR_BIT_OFS  32
-#define   ANGLE_FR_ERROR_VALUE_TYPE   _uint8_t
-/* WAS_ANGLE_FR_Error (big_endian)*/
-#define   WAS_ANGLE_FR_ERROR_BIT_OFS  40
-#define   WAS_ANGLE_FR_ERROR_VALUE_TYPE   _uint8_t
+/* AngleFR (big_endian)*/
+#define   ANGLEFR_BIT_OFS  0
+#define   ANGLEFR_VALUE_TYPE   _int32_t
+/* AngleFRError (big_endian)*/
+#define   ANGLEFRERROR_BIT_OFS  32
+#define   ANGLEFRERROR_VALUE_TYPE   _uint8_t
+/* WASAngleFRError (big_endian)*/
+#define   WASANGLEFRERROR_BIT_OFS  40
+#define   WASANGLEFRERROR_VALUE_TYPE   _uint8_t
 
 /* SW_SENSOR */
 #define   SW_SENSOR_ID   0x527
@@ -660,71 +792,71 @@
 /* Angle (big_endian)*/
 #define   ANGLE_BIT_OFS  0
 #define   ANGLE_VALUE_TYPE   _int32_t
-/* ANGLE_Error (big_endian)*/
-#define   ANGLE_ERROR_BIT_OFS  32
-#define   ANGLE_ERROR_VALUE_TYPE   _uint8_t
-/* WAS_ANGLE_SW_Error (big_endian)*/
-#define   WAS_ANGLE_SW_ERROR_BIT_OFS  40
-#define   WAS_ANGLE_SW_ERROR_VALUE_TYPE   _uint8_t
+/* AngleError (big_endian)*/
+#define   ANGLEERROR_BIT_OFS  32
+#define   ANGLEERROR_VALUE_TYPE   _uint8_t
+/* WASAngleSWError (big_endian)*/
+#define   WASANGLESWERROR_BIT_OFS  40
+#define   WASANGLESWERROR_VALUE_TYPE   _uint8_t
 
 /* BRAKE_LIGHT_FRAME */
 #define   BRAKE_LIGHT_FRAME_ID   0x526
 #define   BRAKE_LIGHT_FRAME_PERIOD   100
 #define   BRAKE_LIGHT_FRAME_DLC  1
 /*  Values  of BRAKE_LIGHT_FRAME */
-/* BRAKE_LIGHT_enable (little_endian)*/
-#define   BRAKE_LIGHT_ENABLE_BIT_OFS  0
-#define   BRAKE_LIGHT_ENABLE_VALUE_TYPE   _int8_t
+/* BrakeLightEnable (little_endian)*/
+#define   BRAKELIGHTENABLE_BIT_OFS  0
+#define   BRAKELIGHTENABLE_VALUE_TYPE   _int8_t
 
 /* BUZZER_FRAME */
 #define   BUZZER_FRAME_ID   0x525
 #define   BUZZER_FRAME_PERIOD   200
 #define   BUZZER_FRAME_DLC  1
 /*  Values  of BUZZER_FRAME */
-/* BUZZER_enable (little_endian)*/
-#define   BUZZER_ENABLE_BIT_OFS  0
-#define   BUZZER_ENABLE_VALUE_TYPE   _uint8_t
+/* BuzzerEnable (little_endian)*/
+#define   BUZZERENABLE_BIT_OFS  0
+#define   BUZZERENABLE_VALUE_TYPE   _uint8_t
 
 /* IVT_V3 */
 #define   IVT_V3_ID   0x524
 #define   IVT_V3_PERIOD   4
 #define   IVT_V3_DLC  8
 /*  Values  of IVT_V3 */
-/* IVT_V3_Value (little_endian)*/
-#define   IVT_V3_VALUE_BIT_OFS  16
-#define   IVT_V3_VALUE_VALUE_TYPE   _int32_t
+/* IVTV3Value (little_endian)*/
+#define   IVTV3VALUE_BIT_OFS  16
+#define   IVTV3VALUE_VALUE_TYPE   _int32_t
 
 /* IVT_V2 */
 #define   IVT_V2_ID   0x523
 #define   IVT_V2_PERIOD   4
 #define   IVT_V2_DLC  8
 /*  Values  of IVT_V2 */
-/* IVT_V2_Value (little_endian)*/
-#define   IVT_V2_VALUE_BIT_OFS  16
-#define   IVT_V2_VALUE_VALUE_TYPE   _int32_t
+/* IVTV2Value (little_endian)*/
+#define   IVTV2VALUE_BIT_OFS  16
+#define   IVTV2VALUE_VALUE_TYPE   _int32_t
 
 /* IVT_V1 */
 #define   IVT_V1_ID   0x522
 #define   IVT_V1_PERIOD   4
 #define   IVT_V1_DLC  8
 /*  Values  of IVT_V1 */
-/* IVT_V1_Value (little_endian)*/
-#define   IVT_V1_VALUE_BIT_OFS  16
-#define   IVT_V1_VALUE_VALUE_TYPE   _int32_t
+/* IVTV1Value (little_endian)*/
+#define   IVTV1VALUE_BIT_OFS  16
+#define   IVTV1VALUE_VALUE_TYPE   _int32_t
 
 /* IVT_I */
 #define   IVT_I_ID   0x521
 #define   IVT_I_PERIOD   4
 #define   IVT_I_DLC  8
 /*  Values  of IVT_I */
-/* IVT_I_Value (little_endian)*/
-#define   IVT_I_VALUE_BIT_OFS  16
-#define   IVT_I_VALUE_VALUE_TYPE   _int32_t
+/* IVTIValue (little_endian)*/
+#define   IVTIVALUE_BIT_OFS  16
+#define   IVTIVALUE_VALUE_TYPE   _int32_t
 
 /* SW_MAIN_REQ_FRAME */
 #define   SW_MAIN_REQ_FRAME_ID   0x720
 #define   SW_MAIN_REQ_FRAME_PERIOD   100
-#define   SW_MAIN_REQ_FRAME_DLC  8
+#define   SW_MAIN_REQ_FRAME_DLC  3
 /*  Values  of SW_MAIN_REQ_FRAME */
 /* Balance (big_endian)*/
 #define   BALANCE_BIT_OFS  0
@@ -741,114 +873,117 @@
 #define   LV_BMS_TEMP_FRAME_PERIOD   200
 #define   LV_BMS_TEMP_FRAME_DLC  8
 /*  Values  of LV_BMS_TEMP_FRAME */
-/* LV_temp0 (big_endian)*/
-#define   LV_TEMP0_BIT_OFS  0
-#define   LV_TEMP0_VALUE_TYPE   _uint8_t
-/* LV_temp1 (big_endian)*/
-#define   LV_TEMP1_BIT_OFS  8
-#define   LV_TEMP1_VALUE_TYPE   _uint8_t
-/* LV_temp2 (big_endian)*/
-#define   LV_TEMP2_BIT_OFS  16
-#define   LV_TEMP2_VALUE_TYPE   _uint8_t
-/* LV_temp3 (big_endian)*/
-#define   LV_TEMP3_BIT_OFS  24
-#define   LV_TEMP3_VALUE_TYPE   _uint8_t
-/* LV_temp4 (big_endian)*/
-#define   LV_TEMP4_BIT_OFS  32
-#define   LV_TEMP4_VALUE_TYPE   _uint8_t
-/* LV_temp5 (big_endian)*/
-#define   LV_TEMP5_BIT_OFS  40
-#define   LV_TEMP5_VALUE_TYPE   _uint8_t
-/* LV_BMS_state (big_endian)*/
-#define   LV_BMS_STATE_BIT_OFS  48
-#define   LV_BMS_STATE_VALUE_TYPE   _uint8_t
-/* LV_BMS_ERROR_frame (big_endian)*/
-#define   LV_BMS_ERROR_FRAME_BIT_OFS  56
-#define   LV_BMS_ERROR_FRAME_VALUE_TYPE   _uint8_t
+/* LVTemp0 (big_endian)*/
+#define   LVTEMP0_BIT_OFS  0
+#define   LVTEMP0_VALUE_TYPE   _uint8_t
+/* LVTemp1 (big_endian)*/
+#define   LVTEMP1_BIT_OFS  8
+#define   LVTEMP1_VALUE_TYPE   _uint8_t
+/* LVTemp2 (big_endian)*/
+#define   LVTEMP2_BIT_OFS  16
+#define   LVTEMP2_VALUE_TYPE   _uint8_t
+/* LVTemp3 (big_endian)*/
+#define   LVTEMP3_BIT_OFS  24
+#define   LVTEMP3_VALUE_TYPE   _uint8_t
+/* LVTemp4 (big_endian)*/
+#define   LVTEMP4_BIT_OFS  32
+#define   LVTEMP4_VALUE_TYPE   _uint8_t
+/* LVTemp5 (big_endian)*/
+#define   LVTEMP5_BIT_OFS  40
+#define   LVTEMP5_VALUE_TYPE   _uint8_t
+/* LVBMSState (big_endian)*/
+#define   LVBMSSTATE_BIT_OFS  48
+#define   LVBMSSTATE_VALUE_TYPE   _uint8_t
+/* LVBMSErrorFrame (big_endian)*/
+#define   LVBMSERRORFRAME_BIT_OFS  56
+#define   LVBMSERRORFRAME_VALUE_TYPE   _uint8_t
 
 /* LV_BMS_VOLTAGE_FRAME */
 #define   LV_BMS_VOLTAGE_FRAME_ID   0x40b
 #define   LV_BMS_VOLTAGE_FRAME_PERIOD   200
 #define   LV_BMS_VOLTAGE_FRAME_DLC  8
 /*  Values  of LV_BMS_VOLTAGE_FRAME */
-/* LV_voltage0 (big_endian)*/
-#define   LV_VOLTAGE0_BIT_OFS  0
-#define   LV_VOLTAGE0_VALUE_TYPE   _uint9_t
-/* LV_voltage1 (big_endian)*/
-#define   LV_VOLTAGE1_BIT_OFS  7
-#define   LV_VOLTAGE1_VALUE_TYPE   _uint9_t
-/* LV_voltage2 (big_endian)*/
-#define   LV_VOLTAGE2_BIT_OFS  14
-#define   LV_VOLTAGE2_VALUE_TYPE   _uint9_t
-/* LV_voltage3 (big_endian)*/
-#define   LV_VOLTAGE3_BIT_OFS  21
-#define   LV_VOLTAGE3_VALUE_TYPE   _uint9_t
-/* LV_voltage4 (big_endian)*/
-#define   LV_VOLTAGE4_BIT_OFS  28
-#define   LV_VOLTAGE4_VALUE_TYPE   _uint9_t
-/* LV_voltage5 (big_endian)*/
-#define   LV_VOLTAGE5_BIT_OFS  35
-#define   LV_VOLTAGE5_VALUE_TYPE   _uint9_t
+/* LVVoltage0 (big_endian)*/
+#define   LVVOLTAGE0_BIT_OFS  0
+#define   LVVOLTAGE0_VALUE_TYPE   _uint9_t
+/* LVVoltage1 (big_endian)*/
+#define   LVVOLTAGE1_BIT_OFS  7
+#define   LVVOLTAGE1_VALUE_TYPE   _uint9_t
+/* LVVoltage2 (big_endian)*/
+#define   LVVOLTAGE2_BIT_OFS  14
+#define   LVVOLTAGE2_VALUE_TYPE   _uint9_t
+/* LVVoltage3 (big_endian)*/
+#define   LVVOLTAGE3_BIT_OFS  21
+#define   LVVOLTAGE3_VALUE_TYPE   _uint9_t
+/* LVVoltage4 (big_endian)*/
+#define   LVVOLTAGE4_BIT_OFS  28
+#define   LVVOLTAGE4_VALUE_TYPE   _uint9_t
+/* LVVoltage5 (big_endian)*/
+#define   LVVOLTAGE5_BIT_OFS  35
+#define   LVVOLTAGE5_VALUE_TYPE   _uint9_t
 
-/* POWER_MODULE_ERROR_ID */
-#define   POWER_MODULE_ERROR_ID_ID   0x40e
-#define   POWER_MODULE_ERROR_ID_PERIOD   200
-#define   POWER_MODULE_ERROR_ID_DLC  1
-/*  Values  of POWER_MODULE_ERROR_ID */
-/* PowerModule_Error (big_endian)*/
-#define   POWERMODULE_ERROR_BIT_OFS  0
-#define   POWERMODULE_ERROR_VALUE_TYPE   _uint8_t
+/* POWER_MODULE_ERROR */
+#define   POWER_MODULE_ERROR_ID   0x40e
+#define   POWER_MODULE_ERROR_PERIOD   200
+#define   POWER_MODULE_ERROR_DLC  1
+/*  Values  of POWER_MODULE_ERROR */
+/* PowerModuleError (big_endian)*/
+#define   POWERMODULEERROR_BIT_OFS  0
+#define   POWERMODULEERROR_VALUE_TYPE   _uint8_t
 
 /* V_T_REQUEST_FRAME */
 #define   V_T_REQUEST_FRAME_ID   0x57f
 #define   V_T_REQUEST_FRAME_PERIOD   10000
 #define   V_T_REQUEST_FRAME_DLC  8
 /*  Values  of V_T_REQUEST_FRAME */
-/* Print_V_T (little_endian)*/
-#define   PRINT_V_T_BIT_OFS  0
-#define   PRINT_V_T_VALUE_TYPE   _uint8_t
+/* PrintVT (little_endian)*/
+#define   PRINTVT_BIT_OFS  0
+#define   PRINTVT_VALUE_TYPE   _uint8_t
 
 /* HV_PWR_LIMITS_FRAME */
 #define   HV_PWR_LIMITS_FRAME_ID   0x5f
 #define   HV_PWR_LIMITS_FRAME_PERIOD   4
 #define   HV_PWR_LIMITS_FRAME_DLC  4
 /*  Values  of HV_PWR_LIMITS_FRAME */
-/* Discharge_current_limit (little_endian)*/
-#define   DISCHARGE_CURRENT_LIMIT_BIT_OFS  0
-#define   DISCHARGE_CURRENT_LIMIT_VALUE_TYPE   _uint16_t
-/* Charge_current_limit (little_endian)*/
-#define   CHARGE_CURRENT_LIMIT_BIT_OFS  16
-#define   CHARGE_CURRENT_LIMIT_VALUE_TYPE   _uint16_t
+/* DischargeCurrentLimit (little_endian)*/
+#define   DISCHARGECURRENTLIMIT_BIT_OFS  0
+#define   DISCHARGECURRENTLIMIT_VALUE_TYPE   _uint16_t
+/* ChargeCurrentLimit (little_endian)*/
+#define   CHARGECURRENTLIMIT_BIT_OFS  16
+#define   CHARGECURRENTLIMIT_VALUE_TYPE   _uint16_t
 
 /* HV_BMS_STATUS_FRAME */
 #define   HV_BMS_STATUS_FRAME_ID   0x60
 #define   HV_BMS_STATUS_FRAME_PERIOD   100
 #define   HV_BMS_STATUS_FRAME_DLC  8
 /*  Values  of HV_BMS_STATUS_FRAME */
-/* HVBMS_bms_state (big_endian)*/
-#define   HVBMS_BMS_STATE_BIT_OFS  0
-#define   HVBMS_BMS_STATE_VALUE_TYPE   _uint8_t
-/* HVBMS_error_code (big_endian)*/
-#define   HVBMS_ERROR_CODE_BIT_OFS  8
-#define   HVBMS_ERROR_CODE_VALUE_TYPE   _uint8_t
-/* HVBMS_state_of_charge (big_endian)*/
-#define   HVBMS_STATE_OF_CHARGE_BIT_OFS  16
-#define   HVBMS_STATE_OF_CHARGE_VALUE_TYPE   _uint8_t
-/* HVBMS_SHD_state (big_endian)*/
-#define   HVBMS_SHD_STATE_BIT_OFS  24
-#define   HVBMS_SHD_STATE_VALUE_TYPE   _uint8_t
+/* HVBMSBmsState (big_endian)*/
+#define   HVBMSBMSSTATE_BIT_OFS  0
+#define   HVBMSBMSSTATE_VALUE_TYPE   _uint8_t
+/* HVBMSErrorCode (big_endian)*/
+#define   HVBMSERRORCODE_BIT_OFS  8
+#define   HVBMSERRORCODE_VALUE_TYPE   _uint8_t
+/* HVBMSStateOfCharge (big_endian)*/
+#define   HVBMSSTATEOFCHARGE_BIT_OFS  16
+#define   HVBMSSTATEOFCHARGE_VALUE_TYPE   _uint8_t
+/* HVBMSSHDState (big_endian)*/
+#define   HVBMSSHDSTATE_BIT_OFS  24
+#define   HVBMSSHDSTATE_VALUE_TYPE   _uint8_t
+/* JaggoracyProc (big_endian)*/
+#define   JAGGORACYPROC_BIT_OFS  32
+#define   JAGGORACYPROC_VALUE_TYPE   _int8_t
 
 /* HV_BMS_ERROR */
 #define   HV_BMS_ERROR_ID   0x61
 #define   HV_BMS_ERROR_PERIOD   100
 #define   HV_BMS_ERROR_DLC  8
 /*  Values  of HV_BMS_ERROR */
-/* AMS_ERROR (little_endian)*/
-#define   AMS_ERROR_BIT_OFS  0
-#define   AMS_ERROR_VALUE_TYPE   _uint32_t
-/* AMS_Warrnig (little_endian)*/
-#define   AMS_WARRNIG_BIT_OFS  32
-#define   AMS_WARRNIG_VALUE_TYPE   _uint32_t
+/* AMSError (little_endian)*/
+#define   AMSERROR_BIT_OFS  0
+#define   AMSERROR_VALUE_TYPE   _uint32_t
+/* AMSWarrnig (little_endian)*/
+#define   AMSWARRNIG_BIT_OFS  32
+#define   AMSWARRNIG_VALUE_TYPE   _uint32_t
 
 /* HV_BMS_SLAVE_FRAME */
 #define   HV_BMS_SLAVE_FRAME_ID   0x62
@@ -873,132 +1008,132 @@
 #define   HV_BMS_MAIN_COMMAND_FRAME_PERIOD   100
 #define   HV_BMS_MAIN_COMMAND_FRAME_DLC  8
 /*  Values  of HV_BMS_MAIN_COMMAND_FRAME */
-/* HV_BMS_command (big_endian)*/
-#define   HV_BMS_COMMAND_BIT_OFS  0
-#define   HV_BMS_COMMAND_VALUE_TYPE   _uint8_t
+/* HVBMSCommand (big_endian)*/
+#define   HVBMSCOMMAND_BIT_OFS  0
+#define   HVBMSCOMMAND_VALUE_TYPE   _uint8_t
 
 /* SW_PEDALS_REQ_FRAME */
 #define   SW_PEDALS_REQ_FRAME_ID   0x701
 #define   SW_PEDALS_REQ_FRAME_PERIOD   100
 #define   SW_PEDALS_REQ_FRAME_DLC  8
 /*  Values  of SW_PEDALS_REQ_FRAME */
-/* bb_update (big_endian)*/
-#define   BB_UPDATE_BIT_OFS  0
-#define   BB_UPDATE_VALUE_TYPE   _uint8_t
-/* pedals_calib (big_endian)*/
-#define   PEDALS_CALIB_BIT_OFS  8
-#define   PEDALS_CALIB_VALUE_TYPE   _uint8_t
+/* BBUpdate (big_endian)*/
+#define   BBUPDATE_BIT_OFS  0
+#define   BBUPDATE_VALUE_TYPE   _uint8_t
+/* PedalsCalib (big_endian)*/
+#define   PEDALSCALIB_BIT_OFS  8
+#define   PEDALSCALIB_VALUE_TYPE   _uint8_t
 
-/* PEDALS_DEBUG_ID */
-#define   PEDALS_DEBUG_ID_ID   0x64
-#define   PEDALS_DEBUG_ID_PERIOD   100
-#define   PEDALS_DEBUG_ID_DLC  8
-/*  Values  of PEDALS_DEBUG_ID */
-/* apps1_adc (big_endian)*/
-#define   APPS1_ADC_BIT_OFS  0
-#define   APPS1_ADC_VALUE_TYPE   _uint16_t
-/* apps2_adc (big_endian)*/
-#define   APPS2_ADC_BIT_OFS  16
-#define   APPS2_ADC_VALUE_TYPE   _uint16_t
-/* apps_diff (big_endian)*/
-#define   APPS_DIFF_BIT_OFS  32
-#define   APPS_DIFF_VALUE_TYPE   _int16_t
-/* Pedals_errcode (big_endian)*/
-#define   PEDALS_ERRCODE_BIT_OFS  48
-#define   PEDALS_ERRCODE_VALUE_TYPE   _uint16_t
+/* PEDALS_DEBUG */
+#define   PEDALS_DEBUG_ID   0x64
+#define   PEDALS_DEBUG_PERIOD   100
+#define   PEDALS_DEBUG_DLC  8
+/*  Values  of PEDALS_DEBUG */
+/* Apps1ADC (big_endian)*/
+#define   APPS1ADC_BIT_OFS  0
+#define   APPS1ADC_VALUE_TYPE   _uint16_t
+/* Apps2ADC (big_endian)*/
+#define   APPS2ADC_BIT_OFS  16
+#define   APPS2ADC_VALUE_TYPE   _uint16_t
+/* AppsDiff (big_endian)*/
+#define   APPSDIFF_BIT_OFS  32
+#define   APPSDIFF_VALUE_TYPE   _int16_t
+/* PedalsErrcode (big_endian)*/
+#define   PEDALSERRCODE_BIT_OFS  48
+#define   PEDALSERRCODE_VALUE_TYPE   _uint16_t
 
 /* IMU_ACCELERATION_FRAME */
 #define   IMU_ACCELERATION_FRAME_ID   0x409
 #define   IMU_ACCELERATION_FRAME_PERIOD   10
 #define   IMU_ACCELERATION_FRAME_DLC  6
 /*  Values  of IMU_ACCELERATION_FRAME */
-/* HR_X_accel (big_endian)*/
-#define   HR_X_ACCEL_BIT_OFS  0
-#define   HR_X_ACCEL_VALUE_TYPE   _int16_t
-/* HR_Y_accel (big_endian)*/
-#define   HR_Y_ACCEL_BIT_OFS  16
-#define   HR_Y_ACCEL_VALUE_TYPE   _int16_t
-/* HR_Z_accel (big_endian)*/
-#define   HR_Z_ACCEL_BIT_OFS  32
-#define   HR_Z_ACCEL_VALUE_TYPE   _int16_t
+/* HRXAccel (big_endian)*/
+#define   HRXACCEL_BIT_OFS  0
+#define   HRXACCEL_VALUE_TYPE   _int16_t
+/* HRYAccel (big_endian)*/
+#define   HRYACCEL_BIT_OFS  16
+#define   HRYACCEL_VALUE_TYPE   _int16_t
+/* HRZAccel (big_endian)*/
+#define   HRZACCEL_BIT_OFS  32
+#define   HRZACCEL_VALUE_TYPE   _int16_t
 
 /* IMU_ANGULAR_FRAME */
 #define   IMU_ANGULAR_FRAME_ID   0x408
 #define   IMU_ANGULAR_FRAME_PERIOD   10
 #define   IMU_ANGULAR_FRAME_DLC  6
 /*  Values  of IMU_ANGULAR_FRAME */
-/* HR_X_ang_rate (big_endian)*/
-#define   HR_X_ANG_RATE_BIT_OFS  0
-#define   HR_X_ANG_RATE_VALUE_TYPE   _int16_t
-/* HR_Y_ang_rate (big_endian)*/
-#define   HR_Y_ANG_RATE_BIT_OFS  16
-#define   HR_Y_ANG_RATE_VALUE_TYPE   _int16_t
-/* HR_Z_ang_rate (big_endian)*/
-#define   HR_Z_ANG_RATE_BIT_OFS  32
-#define   HR_Z_ANG_RATE_VALUE_TYPE   _int16_t
+/* HRXAngRate (big_endian)*/
+#define   HRXANGRATE_BIT_OFS  0
+#define   HRXANGRATE_VALUE_TYPE   _int16_t
+/* HRYAngRate (big_endian)*/
+#define   HRYANGRATE_BIT_OFS  16
+#define   HRYANGRATE_VALUE_TYPE   _int16_t
+/* HRZAngRate (big_endian)*/
+#define   HRZANGRATE_BIT_OFS  32
+#define   HRZANGRATE_VALUE_TYPE   _int16_t
 
 /* GPS_FRAME_4 */
 #define   GPS_FRAME_4_ID   0x404
 #define   GPS_FRAME_4_PERIOD   100
 #define   GPS_FRAME_4_DLC  8
 /*  Values  of GPS_FRAME_4 */
-/* UTC_year (big_endian)*/
-#define   UTC_YEAR_BIT_OFS  0
-#define   UTC_YEAR_VALUE_TYPE   _uint8_t
-/* UTC_month (big_endian)*/
-#define   UTC_MONTH_BIT_OFS  8
-#define   UTC_MONTH_VALUE_TYPE   _uint8_t
-/* UTC_day (big_endian)*/
-#define   UTC_DAY_BIT_OFS  16
-#define   UTC_DAY_VALUE_TYPE   _uint8_t
-/* UTC_hour (big_endian)*/
-#define   UTC_HOUR_BIT_OFS  24
-#define   UTC_HOUR_VALUE_TYPE   _uint8_t
-/* UTC_minute (big_endian)*/
-#define   UTC_MINUTE_BIT_OFS  32
-#define   UTC_MINUTE_VALUE_TYPE   _uint8_t
-/* UTC_second (big_endian)*/
-#define   UTC_SECOND_BIT_OFS  40
-#define   UTC_SECOND_VALUE_TYPE   _uint8_t
-/* UTC_millisecond (big_endian)*/
-#define   UTC_MILLISECOND_BIT_OFS  48
-#define   UTC_MILLISECOND_VALUE_TYPE   _uint16_t
+/* UTCYear (big_endian)*/
+#define   UTCYEAR_BIT_OFS  0
+#define   UTCYEAR_VALUE_TYPE   _uint8_t
+/* UTCMonth (big_endian)*/
+#define   UTCMONTH_BIT_OFS  8
+#define   UTCMONTH_VALUE_TYPE   _uint8_t
+/* UTCDay (big_endian)*/
+#define   UTCDAY_BIT_OFS  16
+#define   UTCDAY_VALUE_TYPE   _uint8_t
+/* UTCHour (big_endian)*/
+#define   UTCHOUR_BIT_OFS  24
+#define   UTCHOUR_VALUE_TYPE   _uint8_t
+/* UTCMinute (big_endian)*/
+#define   UTCMINUTE_BIT_OFS  32
+#define   UTCMINUTE_VALUE_TYPE   _uint8_t
+/* UTCSecond (big_endian)*/
+#define   UTCSECOND_BIT_OFS  40
+#define   UTCSECOND_VALUE_TYPE   _uint8_t
+/* UTCMillisecond (big_endian)*/
+#define   UTCMILLISECOND_BIT_OFS  48
+#define   UTCMILLISECOND_VALUE_TYPE   _uint16_t
 
 /* GPS_FRAME_3 */
 #define   GPS_FRAME_3_ID   0x403
 #define   GPS_FRAME_3_PERIOD   100
 #define   GPS_FRAME_3_DLC  8
 /*  Values  of GPS_FRAME_3 */
-/* Z_angle_rate (big_endian)*/
-#define   Z_ANGLE_RATE_BIT_OFS  0
-#define   Z_ANGLE_RATE_VALUE_TYPE   _int16_t
-/* X_acceleration (big_endian)*/
-#define   X_ACCELERATION_BIT_OFS  16
-#define   X_ACCELERATION_VALUE_TYPE   _int16_t
-/* Y_acceleration (big_endian)*/
-#define   Y_ACCELERATION_BIT_OFS  32
-#define   Y_ACCELERATION_VALUE_TYPE   _int16_t
-/* Z_acceleration (big_endian)*/
-#define   Z_ACCELERATION_BIT_OFS  48
-#define   Z_ACCELERATION_VALUE_TYPE   _int16_t
+/* ZAngleRate (big_endian)*/
+#define   ZANGLERATE_BIT_OFS  0
+#define   ZANGLERATE_VALUE_TYPE   _int16_t
+/* XAcceleration (big_endian)*/
+#define   XACCELERATION_BIT_OFS  16
+#define   XACCELERATION_VALUE_TYPE   _int16_t
+/* YAcceleration (big_endian)*/
+#define   YACCELERATION_BIT_OFS  32
+#define   YACCELERATION_VALUE_TYPE   _int16_t
+/* ZAcceleration (big_endian)*/
+#define   ZACCELERATION_BIT_OFS  48
+#define   ZACCELERATION_VALUE_TYPE   _int16_t
 
 /* GPS_FRAME_2 */
 #define   GPS_FRAME_2_ID   0x402
 #define   GPS_FRAME_2_PERIOD   100
 #define   GPS_FRAME_2_DLC  8
 /*  Values  of GPS_FRAME_2 */
-/* Heading_motion (big_endian)*/
-#define   HEADING_MOTION_BIT_OFS  0
-#define   HEADING_MOTION_VALUE_TYPE   _uint16_t
-/* Heading_vehicle_1 (big_endian)*/
-#define   HEADING_VEHICLE_1_BIT_OFS  16
-#define   HEADING_VEHICLE_1_VALUE_TYPE   _uint16_t
-/* X_angle_rate (big_endian)*/
-#define   X_ANGLE_RATE_BIT_OFS  32
-#define   X_ANGLE_RATE_VALUE_TYPE   _int16_t
-/* Y_angle_rate (big_endian)*/
-#define   Y_ANGLE_RATE_BIT_OFS  48
-#define   Y_ANGLE_RATE_VALUE_TYPE   _int16_t
+/* HeadingMotion (big_endian)*/
+#define   HEADINGMOTION_BIT_OFS  0
+#define   HEADINGMOTION_VALUE_TYPE   _uint16_t
+/* HeadingVehicle1 (big_endian)*/
+#define   HEADINGVEHICLE1_BIT_OFS  16
+#define   HEADINGVEHICLE1_VALUE_TYPE   _uint16_t
+/* XAngleRate (big_endian)*/
+#define   XANGLERATE_BIT_OFS  32
+#define   XANGLERATE_VALUE_TYPE   _int16_t
+/* YAngleRate (big_endian)*/
+#define   YANGLERATE_BIT_OFS  48
+#define   YANGLERATE_VALUE_TYPE   _int16_t
 
 /* GPS_FRAME_1 */
 #define   GPS_FRAME_1_ID   0x401
@@ -1014,21 +1149,21 @@
 /* Noise (big_endian)*/
 #define   NOISE_BIT_OFS  32
 #define   NOISE_VALUE_TYPE   _uint8_t
-/* Satellites_number (big_endian)*/
-#define   SATELLITES_NUMBER_BIT_OFS  40
-#define   SATELLITES_NUMBER_VALUE_TYPE   _uint8_t
-/* GPS_frame_index (big_endian)*/
-#define   GPS_FRAME_INDEX_BIT_OFS  55
-#define   GPS_FRAME_INDEX_VALUE_TYPE   _uint4_t
-/* Empty_frame_index (big_endian)*/
-#define   EMPTY_FRAME_INDEX_BIT_OFS  51
-#define   EMPTY_FRAME_INDEX_VALUE_TYPE   _uint4_t
-/* GPS_status (big_endian)*/
-#define   GPS_STATUS_BIT_OFS  63
-#define   GPS_STATUS_VALUE_TYPE   _uint3_t
-/* IMU_fusion_status (big_endian)*/
-#define   IMU_FUSION_STATUS_BIT_OFS  60
-#define   IMU_FUSION_STATUS_VALUE_TYPE   _uint3_t
+/* SatellitesNumber (big_endian)*/
+#define   SATELLITESNUMBER_BIT_OFS  40
+#define   SATELLITESNUMBER_VALUE_TYPE   _uint8_t
+/* GPSFrameIndex (big_endian)*/
+#define   GPSFRAMEINDEX_BIT_OFS  55
+#define   GPSFRAMEINDEX_VALUE_TYPE   _uint4_t
+/* EmptyFrameIndex (big_endian)*/
+#define   EMPTYFRAMEINDEX_BIT_OFS  51
+#define   EMPTYFRAMEINDEX_VALUE_TYPE   _uint4_t
+/* GPSStatus (big_endian)*/
+#define   GPSSTATUS_BIT_OFS  63
+#define   GPSSTATUS_VALUE_TYPE   _uint3_t
+/* IMUFusionStatus (big_endian)*/
+#define   IMUFUSIONSTATUS_BIT_OFS  60
+#define   IMUFUSIONSTATUS_VALUE_TYPE   _uint3_t
 
 /* GPS_FRAME_0 */
 #define   GPS_FRAME_0_ID   0x400
@@ -1042,53 +1177,17 @@
 #define   LONGITUDE_BIT_OFS  32
 #define   LONGITUDE_VALUE_TYPE   _int32_t
 
-/* STARTBUTTONS */
-#define   STARTBUTTONS_ID   0x11
-#define   STARTBUTTONS_PERIOD   100
-#define   STARTBUTTONS_DLC  2
-/*  Values  of STARTBUTTONS */
-/* Hv_on (little_endian)*/
-#define   HV_ON_BIT_OFS  0
-#define   HV_ON_VALUE_TYPE   _uint8_t
+/* START_BUTTONS */
+#define   START_BUTTONS_ID   0x11
+#define   START_BUTTONS_PERIOD   100
+#define   START_BUTTONS_DLC  2
+/*  Values  of START_BUTTONS */
+/* HvOn (little_endian)*/
+#define   HVON_BIT_OFS  0
+#define   HVON_VALUE_TYPE   _uint8_t
 /* TS_on (little_endian)*/
 #define   TS_ON_BIT_OFS  8
 #define   TS_ON_VALUE_TYPE   _uint8_t
-
-/* SW_DISPLAYED_CONFIG_FRAME_3 */
-#define   SW_DISPLAYED_CONFIG_FRAME_3_ID   0xa
-#define   SW_DISPLAYED_CONFIG_FRAME_3_PERIOD   100
-#define   SW_DISPLAYED_CONFIG_FRAME_3_DLC  8
-/*  Values  of SW_DISPLAYED_CONFIG_FRAME_3 */
-/* c_TCKp (big_endian)*/
-#define   C_TCKP_BIT_OFS  0
-#define   C_TCKP_VALUE_TYPE   _uint8_t
-/* c_TCKi (big_endian)*/
-#define   C_TCKI_BIT_OFS  8
-#define   C_TCKI_VALUE_TYPE   _uint8_t
-/* c_TCKd (big_endian)*/
-#define   C_TCKD_BIT_OFS  16
-#define   C_TCKD_VALUE_TYPE   _uint8_t
-/* c_tractionControlEnable (big_endian)*/
-#define   C_TRACTIONCONTROLENABLE_BIT_OFS  24
-#define   C_TRACTIONCONTROLENABLE_VALUE_TYPE   _uint8_t
-
-/* SW_DISPLAYED_CONFIG_FRAME_2 */
-#define   SW_DISPLAYED_CONFIG_FRAME_2_ID   0x9
-#define   SW_DISPLAYED_CONFIG_FRAME_2_PERIOD   100
-#define   SW_DISPLAYED_CONFIG_FRAME_2_DLC  8
-/*  Values  of SW_DISPLAYED_CONFIG_FRAME_2 */
-/* c_TVKp (big_endian)*/
-#define   C_TVKP_BIT_OFS  0
-#define   C_TVKP_VALUE_TYPE   _uint8_t
-/* c_TVKi (big_endian)*/
-#define   C_TVKI_BIT_OFS  8
-#define   C_TVKI_VALUE_TYPE   _uint8_t
-/* c_TVKd (big_endian)*/
-#define   C_TVKD_BIT_OFS  16
-#define   C_TVKD_VALUE_TYPE   _uint8_t
-/* c_torqueVectoringEnable (big_endian)*/
-#define   C_TORQUEVECTORINGENABLE_BIT_OFS  24
-#define   C_TORQUEVECTORINGENABLE_VALUE_TYPE   _uint8_t
 
 /* INV_FR */
 #define   INV_FR_ID   0x19
@@ -1108,11 +1207,11 @@
 #define   WHEELFRTORQUE_BIT_OFS  48
 #define   WHEELFRTORQUE_VALUE_TYPE   _uint16_t
 
-/* INV_RP */
-#define   INV_RP_ID   0x1b
-#define   INV_RP_PERIOD   100
-#define   INV_RP_DLC  8
-/*  Values  of INV_RP */
+/* INV_RR */
+#define   INV_RR_ID   0x1b
+#define   INV_RR_PERIOD   100
+#define   INV_RR_DLC  8
+/*  Values  of INV_RR */
 /* WheelRRSpeed (little_endian)*/
 #define   WHEELRRSPEED_BIT_OFS  0
 #define   WHEELRRSPEED_VALUE_TYPE   _uint16_t
@@ -1177,62 +1276,32 @@
 #define   ADUPAGE_BIT_OFS  16
 #define   ADUPAGE_VALUE_TYPE   _uint8_t
 
-/* SW_DISPLAYED_CONFIG_FRAME_1 */
-#define   SW_DISPLAYED_CONFIG_FRAME_1_ID   0x8
-#define   SW_DISPLAYED_CONFIG_FRAME_1_PERIOD   100
-#define   SW_DISPLAYED_CONFIG_FRAME_1_DLC  8
-/*  Values  of SW_DISPLAYED_CONFIG_FRAME_1 */
-/* c_currentDriver (big_endian)*/
-#define   C_CURRENTDRIVER_BIT_OFS  0
-#define   C_CURRENTDRIVER_VALUE_TYPE   _uint8_t
-/* c_currentPowerBalance (big_endian)*/
-#define   C_CURRENTPOWERBALANCE_BIT_OFS  8
-#define   C_CURRENTPOWERBALANCE_VALUE_TYPE   _int8_t
-/* c_currentPowerLimit (big_endian)*/
-#define   C_CURRENTPOWERLIMIT_BIT_OFS  16
-#define   C_CURRENTPOWERLIMIT_VALUE_TYPE   _uint8_t
-/* c_ePedalBrakeThreshold (big_endian)*/
-#define   C_EPEDALBRAKETHRESHOLD_BIT_OFS  24
-#define   C_EPEDALBRAKETHRESHOLD_VALUE_TYPE   _uint8_t
-/* c_ePedalAcceleratorThreshold (big_endian)*/
-#define   C_EPEDALACCELERATORTHRESHOLD_BIT_OFS  32
-#define   C_EPEDALACCELERATORTHRESHOLD_VALUE_TYPE   _uint8_t
-/* c_complementaryFilter (big_endian)*/
-#define   C_COMPLEMENTARYFILTER_BIT_OFS  40
-#define   C_COMPLEMENTARYFILTER_VALUE_TYPE   _uint8_t
-/* UnderOverSteer (big_endian)*/
-#define   UNDEROVERSTEER_BIT_OFS  48
-#define   UNDEROVERSTEER_VALUE_TYPE   _uint8_t
-/* VelocityCoefficient (big_endian)*/
-#define   VELOCITYCOEFFICIENT_BIT_OFS  56
-#define   VELOCITYCOEFFICIENT_VALUE_TYPE   _uint8_t
-
 /* MAIN_STATUS_FRAME */
 #define   MAIN_STATUS_FRAME_ID   0x66
 #define   MAIN_STATUS_FRAME_PERIOD   100
 #define   MAIN_STATUS_FRAME_DLC  8
 /*  Values  of MAIN_STATUS_FRAME */
-/* c_MainState (big_endian)*/
-#define   C_MAINSTATE_BIT_OFS  0
-#define   C_MAINSTATE_VALUE_TYPE   _uint8_t
-/* c_Buzzer (big_endian)*/
-#define   C_BUZZER_BIT_OFS  8
-#define   C_BUZZER_VALUE_TYPE   _uint8_t
-/* c_TSOff (big_endian)*/
-#define   C_TSOFF_BIT_OFS  23
-#define   C_TSOFF_VALUE_TYPE   _uint1_t
-/* c_IMD (big_endian)*/
-#define   C_IMD_BIT_OFS  22
-#define   C_IMD_VALUE_TYPE   _uint1_t
-/* c_AMS (big_endian)*/
-#define   C_AMS_BIT_OFS  21
-#define   C_AMS_VALUE_TYPE   _uint1_t
-/* c_AMKError (big_endian)*/
-#define   C_AMKERROR_BIT_OFS  24
-#define   C_AMKERROR_VALUE_TYPE   _uint8_t
-/* c_CurrentDriverProfile (big_endian)*/
-#define   C_CURRENTDRIVERPROFILE_BIT_OFS  32
-#define   C_CURRENTDRIVERPROFILE_VALUE_TYPE   _uint8_t
+/* MainState (big_endian)*/
+#define   MAINSTATE_BIT_OFS  0
+#define   MAINSTATE_VALUE_TYPE   _uint8_t
+/* Buzzer (big_endian)*/
+#define   BUZZER_BIT_OFS  8
+#define   BUZZER_VALUE_TYPE   _uint8_t
+/* TSOff (big_endian)*/
+#define   TSOFF_BIT_OFS  23
+#define   TSOFF_VALUE_TYPE   _uint1_t
+/* IMD (big_endian)*/
+#define   IMD_BIT_OFS  22
+#define   IMD_VALUE_TYPE   _uint1_t
+/* AMS (big_endian)*/
+#define   AMS_BIT_OFS  21
+#define   AMS_VALUE_TYPE   _uint1_t
+/* AMKError (big_endian)*/
+#define   AMKERROR_BIT_OFS  24
+#define   AMKERROR_VALUE_TYPE   _uint8_t
+/* CurrentDriverProfile (big_endian)*/
+#define   CURRENTDRIVERPROFILE_BIT_OFS  32
+#define   CURRENTDRIVERPROFILE_VALUE_TYPE   _uint8_t
 
 /* PEDALS_FRAME */
 #define   PEDALS_FRAME_ID   0x63
@@ -1255,11 +1324,11 @@
 #define   PEDALSBB_BIT_OFS  56
 #define   PEDALSBB_VALUE_TYPE   _uint8_t
 
-/* POWER_MODULE_ID */
-#define   POWER_MODULE_ID_ID   0x40d
-#define   POWER_MODULE_ID_PERIOD   200
-#define   POWER_MODULE_ID_DLC  8
-/*  Values  of POWER_MODULE_ID */
+/* POWER_MODULE */
+#define   POWER_MODULE_ID   0x40d
+#define   POWER_MODULE_PERIOD   200
+#define   POWER_MODULE_DLC  8
+/*  Values  of POWER_MODULE */
 /* PumpStatus (little_endian)*/
 #define   PUMPSTATUS_BIT_OFS  0
 #define   PUMPSTATUS_VALUE_TYPE   _uint1_t
@@ -1284,603 +1353,603 @@
 /* InvCurr (little_endian)*/
 #define   INVCURR_BIT_OFS  32
 #define   INVCURR_VALUE_TYPE   _uint8_t
-/* CAN_Curr (little_endian)*/
-#define   CAN_CURR_BIT_OFS  40
-#define   CAN_CURR_VALUE_TYPE   _uint8_t
+/* CANCurr (little_endian)*/
+#define   CANCURR_BIT_OFS  40
+#define   CANCURR_VALUE_TYPE   _uint8_t
 
-/* BP1_V01_04 */
-#define   BP1_V01_04_ID   0x550
-#define   BP1_V01_04_PERIOD   100
-#define   BP1_V01_04_DLC  8
-/*  Values  of BP1_V01_04 */
-/* BP1V01 (little_endian)*/
-#define   BP1V01_BIT_OFS  0
-#define   BP1V01_VALUE_TYPE   _uint16_t
-/* BP1V02 (little_endian)*/
-#define   BP1V02_BIT_OFS  16
-#define   BP1V02_VALUE_TYPE   _uint16_t
-/* BP1V03 (little_endian)*/
-#define   BP1V03_BIT_OFS  32
-#define   BP1V03_VALUE_TYPE   _uint16_t
-/* BP1V04 (little_endian)*/
-#define   BP1V04_BIT_OFS  48
-#define   BP1V04_VALUE_TYPE   _uint16_t
+/* BP01_V01_04 */
+#define   BP01_V01_04_ID   0x550
+#define   BP01_V01_04_PERIOD   100
+#define   BP01_V01_04_DLC  8
+/*  Values  of BP01_V01_04 */
+/* BP01V01 (little_endian)*/
+#define   BP01V01_BIT_OFS  0
+#define   BP01V01_VALUE_TYPE   _uint16_t
+/* BP01V02 (little_endian)*/
+#define   BP01V02_BIT_OFS  16
+#define   BP01V02_VALUE_TYPE   _uint16_t
+/* BP01V03 (little_endian)*/
+#define   BP01V03_BIT_OFS  32
+#define   BP01V03_VALUE_TYPE   _uint16_t
+/* BP01V04 (little_endian)*/
+#define   BP01V04_BIT_OFS  48
+#define   BP01V04_VALUE_TYPE   _uint16_t
 
-/* BP1_V05_08 */
-#define   BP1_V05_08_ID   0x551
-#define   BP1_V05_08_PERIOD   100
-#define   BP1_V05_08_DLC  8
-/*  Values  of BP1_V05_08 */
-/* BP1V05 (little_endian)*/
-#define   BP1V05_BIT_OFS  0
-#define   BP1V05_VALUE_TYPE   _uint16_t
-/* BP1V06 (little_endian)*/
-#define   BP1V06_BIT_OFS  16
-#define   BP1V06_VALUE_TYPE   _uint16_t
-/* BP1V07 (little_endian)*/
-#define   BP1V07_BIT_OFS  32
-#define   BP1V07_VALUE_TYPE   _uint16_t
-/* BP1V08 (little_endian)*/
-#define   BP1V08_BIT_OFS  48
-#define   BP1V08_VALUE_TYPE   _uint16_t
+/* BP01_V05_08 */
+#define   BP01_V05_08_ID   0x551
+#define   BP01_V05_08_PERIOD   100
+#define   BP01_V05_08_DLC  8
+/*  Values  of BP01_V05_08 */
+/* BP01V05 (little_endian)*/
+#define   BP01V05_BIT_OFS  0
+#define   BP01V05_VALUE_TYPE   _uint16_t
+/* BP01V06 (little_endian)*/
+#define   BP01V06_BIT_OFS  16
+#define   BP01V06_VALUE_TYPE   _uint16_t
+/* BP01V07 (little_endian)*/
+#define   BP01V07_BIT_OFS  32
+#define   BP01V07_VALUE_TYPE   _uint16_t
+/* BP01V08 (little_endian)*/
+#define   BP01V08_BIT_OFS  48
+#define   BP01V08_VALUE_TYPE   _uint16_t
 
-/* BP1_V09_12 */
-#define   BP1_V09_12_ID   0x552
-#define   BP1_V09_12_PERIOD   100
-#define   BP1_V09_12_DLC  8
-/*  Values  of BP1_V09_12 */
-/* BP1V09 (little_endian)*/
-#define   BP1V09_BIT_OFS  0
-#define   BP1V09_VALUE_TYPE   _uint16_t
-/* BP1V10 (little_endian)*/
-#define   BP1V10_BIT_OFS  16
-#define   BP1V10_VALUE_TYPE   _uint16_t
-/* BP1V11 (little_endian)*/
-#define   BP1V11_BIT_OFS  32
-#define   BP1V11_VALUE_TYPE   _uint16_t
-/* BP1V12 (little_endian)*/
-#define   BP1V12_BIT_OFS  48
-#define   BP1V12_VALUE_TYPE   _uint16_t
+/* BP01_V09_12 */
+#define   BP01_V09_12_ID   0x552
+#define   BP01_V09_12_PERIOD   100
+#define   BP01_V09_12_DLC  8
+/*  Values  of BP01_V09_12 */
+/* BP01V09 (little_endian)*/
+#define   BP01V09_BIT_OFS  0
+#define   BP01V09_VALUE_TYPE   _uint16_t
+/* BP01V10 (little_endian)*/
+#define   BP01V10_BIT_OFS  16
+#define   BP01V10_VALUE_TYPE   _uint16_t
+/* BP01V11 (little_endian)*/
+#define   BP01V11_BIT_OFS  32
+#define   BP01V11_VALUE_TYPE   _uint16_t
+/* BP01V12 (little_endian)*/
+#define   BP01V12_BIT_OFS  48
+#define   BP01V12_VALUE_TYPE   _uint16_t
 
-/* BP1_V13_14 */
-#define   BP1_V13_14_ID   0x553
-#define   BP1_V13_14_PERIOD   100
-#define   BP1_V13_14_DLC  8
-/*  Values  of BP1_V13_14 */
-/* BP1V13 (little_endian)*/
-#define   BP1V13_BIT_OFS  0
-#define   BP1V13_VALUE_TYPE   _uint16_t
-/* BP1V14 (little_endian)*/
-#define   BP1V14_BIT_OFS  16
-#define   BP1V14_VALUE_TYPE   _uint16_t
+/* BP01_V13_14 */
+#define   BP01_V13_14_ID   0x553
+#define   BP01_V13_14_PERIOD   100
+#define   BP01_V13_14_DLC  8
+/*  Values  of BP01_V13_14 */
+/* BP01V13 (little_endian)*/
+#define   BP01V13_BIT_OFS  0
+#define   BP01V13_VALUE_TYPE   _uint16_t
+/* BP01V14 (little_endian)*/
+#define   BP01V14_BIT_OFS  16
+#define   BP01V14_VALUE_TYPE   _uint16_t
 
-/* BP2_V01_04 */
-#define   BP2_V01_04_ID   0x554
-#define   BP2_V01_04_PERIOD   100
-#define   BP2_V01_04_DLC  8
-/*  Values  of BP2_V01_04 */
-/* BP2V01 (little_endian)*/
-#define   BP2V01_BIT_OFS  0
-#define   BP2V01_VALUE_TYPE   _uint16_t
-/* BP2V02 (little_endian)*/
-#define   BP2V02_BIT_OFS  16
-#define   BP2V02_VALUE_TYPE   _uint16_t
-/* BP2V03 (little_endian)*/
-#define   BP2V03_BIT_OFS  32
-#define   BP2V03_VALUE_TYPE   _uint16_t
-/* BP2V04 (little_endian)*/
-#define   BP2V04_BIT_OFS  48
-#define   BP2V04_VALUE_TYPE   _uint16_t
+/* BP02_V01_04 */
+#define   BP02_V01_04_ID   0x554
+#define   BP02_V01_04_PERIOD   100
+#define   BP02_V01_04_DLC  8
+/*  Values  of BP02_V01_04 */
+/* BP02V01 (little_endian)*/
+#define   BP02V01_BIT_OFS  0
+#define   BP02V01_VALUE_TYPE   _uint16_t
+/* BP02V02 (little_endian)*/
+#define   BP02V02_BIT_OFS  16
+#define   BP02V02_VALUE_TYPE   _uint16_t
+/* BP02V03 (little_endian)*/
+#define   BP02V03_BIT_OFS  32
+#define   BP02V03_VALUE_TYPE   _uint16_t
+/* BP02V04 (little_endian)*/
+#define   BP02V04_BIT_OFS  48
+#define   BP02V04_VALUE_TYPE   _uint16_t
 
-/* BP2_V05_08 */
-#define   BP2_V05_08_ID   0x555
-#define   BP2_V05_08_PERIOD   100
-#define   BP2_V05_08_DLC  8
-/*  Values  of BP2_V05_08 */
-/* BP2V05 (little_endian)*/
-#define   BP2V05_BIT_OFS  0
-#define   BP2V05_VALUE_TYPE   _uint16_t
-/* BP2V06 (little_endian)*/
-#define   BP2V06_BIT_OFS  16
-#define   BP2V06_VALUE_TYPE   _uint16_t
-/* BP2V07 (little_endian)*/
-#define   BP2V07_BIT_OFS  32
-#define   BP2V07_VALUE_TYPE   _uint16_t
-/* BP2V08 (little_endian)*/
-#define   BP2V08_BIT_OFS  48
-#define   BP2V08_VALUE_TYPE   _uint16_t
+/* BP02_V05_08 */
+#define   BP02_V05_08_ID   0x555
+#define   BP02_V05_08_PERIOD   100
+#define   BP02_V05_08_DLC  8
+/*  Values  of BP02_V05_08 */
+/* BP02V05 (little_endian)*/
+#define   BP02V05_BIT_OFS  0
+#define   BP02V05_VALUE_TYPE   _uint16_t
+/* BP02V06 (little_endian)*/
+#define   BP02V06_BIT_OFS  16
+#define   BP02V06_VALUE_TYPE   _uint16_t
+/* BP02V07 (little_endian)*/
+#define   BP02V07_BIT_OFS  32
+#define   BP02V07_VALUE_TYPE   _uint16_t
+/* BP02V08 (little_endian)*/
+#define   BP02V08_BIT_OFS  48
+#define   BP02V08_VALUE_TYPE   _uint16_t
 
-/* BP2_V09_12 */
-#define   BP2_V09_12_ID   0x556
-#define   BP2_V09_12_PERIOD   100
-#define   BP2_V09_12_DLC  8
-/*  Values  of BP2_V09_12 */
-/* BP2V09 (little_endian)*/
-#define   BP2V09_BIT_OFS  0
-#define   BP2V09_VALUE_TYPE   _uint16_t
-/* BP2V10 (little_endian)*/
-#define   BP2V10_BIT_OFS  16
-#define   BP2V10_VALUE_TYPE   _uint16_t
-/* BP2V11 (little_endian)*/
-#define   BP2V11_BIT_OFS  32
-#define   BP2V11_VALUE_TYPE   _uint16_t
-/* BP2V12 (little_endian)*/
-#define   BP2V12_BIT_OFS  48
-#define   BP2V12_VALUE_TYPE   _uint16_t
+/* BP02_V09_12 */
+#define   BP02_V09_12_ID   0x556
+#define   BP02_V09_12_PERIOD   100
+#define   BP02_V09_12_DLC  8
+/*  Values  of BP02_V09_12 */
+/* BP02V09 (little_endian)*/
+#define   BP02V09_BIT_OFS  0
+#define   BP02V09_VALUE_TYPE   _uint16_t
+/* BP02V10 (little_endian)*/
+#define   BP02V10_BIT_OFS  16
+#define   BP02V10_VALUE_TYPE   _uint16_t
+/* BP02V11 (little_endian)*/
+#define   BP02V11_BIT_OFS  32
+#define   BP02V11_VALUE_TYPE   _uint16_t
+/* BP02V12 (little_endian)*/
+#define   BP02V12_BIT_OFS  48
+#define   BP02V12_VALUE_TYPE   _uint16_t
 
-/* BP2_V13_14 */
-#define   BP2_V13_14_ID   0x557
-#define   BP2_V13_14_PERIOD   100
-#define   BP2_V13_14_DLC  8
-/*  Values  of BP2_V13_14 */
-/* BP2V13 (little_endian)*/
-#define   BP2V13_BIT_OFS  0
-#define   BP2V13_VALUE_TYPE   _uint16_t
-/* BP2V14 (little_endian)*/
-#define   BP2V14_BIT_OFS  16
-#define   BP2V14_VALUE_TYPE   _uint16_t
+/* BP02_V13_14 */
+#define   BP02_V13_14_ID   0x557
+#define   BP02_V13_14_PERIOD   100
+#define   BP02_V13_14_DLC  8
+/*  Values  of BP02_V13_14 */
+/* BP02V13 (little_endian)*/
+#define   BP02V13_BIT_OFS  0
+#define   BP02V13_VALUE_TYPE   _uint16_t
+/* BP02V14 (little_endian)*/
+#define   BP02V14_BIT_OFS  16
+#define   BP02V14_VALUE_TYPE   _uint16_t
 
-/* BP3_V01_04 */
-#define   BP3_V01_04_ID   0x558
-#define   BP3_V01_04_PERIOD   100
-#define   BP3_V01_04_DLC  8
-/*  Values  of BP3_V01_04 */
-/* BP3V01 (little_endian)*/
-#define   BP3V01_BIT_OFS  0
-#define   BP3V01_VALUE_TYPE   _uint16_t
-/* BP3V02 (little_endian)*/
-#define   BP3V02_BIT_OFS  16
-#define   BP3V02_VALUE_TYPE   _uint16_t
-/* BP3V03 (little_endian)*/
-#define   BP3V03_BIT_OFS  32
-#define   BP3V03_VALUE_TYPE   _uint16_t
-/* BP3V04 (little_endian)*/
-#define   BP3V04_BIT_OFS  48
-#define   BP3V04_VALUE_TYPE   _uint16_t
+/* BP03_V01_04 */
+#define   BP03_V01_04_ID   0x558
+#define   BP03_V01_04_PERIOD   100
+#define   BP03_V01_04_DLC  8
+/*  Values  of BP03_V01_04 */
+/* BP03V01 (little_endian)*/
+#define   BP03V01_BIT_OFS  0
+#define   BP03V01_VALUE_TYPE   _uint16_t
+/* BP03V02 (little_endian)*/
+#define   BP03V02_BIT_OFS  16
+#define   BP03V02_VALUE_TYPE   _uint16_t
+/* BP03V03 (little_endian)*/
+#define   BP03V03_BIT_OFS  32
+#define   BP03V03_VALUE_TYPE   _uint16_t
+/* BP03V04 (little_endian)*/
+#define   BP03V04_BIT_OFS  48
+#define   BP03V04_VALUE_TYPE   _uint16_t
 
-/* BP3_V05_08 */
-#define   BP3_V05_08_ID   0x559
-#define   BP3_V05_08_PERIOD   100
-#define   BP3_V05_08_DLC  8
-/*  Values  of BP3_V05_08 */
-/* BP3V05 (little_endian)*/
-#define   BP3V05_BIT_OFS  0
-#define   BP3V05_VALUE_TYPE   _uint16_t
-/* BP3V06 (little_endian)*/
-#define   BP3V06_BIT_OFS  16
-#define   BP3V06_VALUE_TYPE   _uint16_t
-/* BP3V07 (little_endian)*/
-#define   BP3V07_BIT_OFS  32
-#define   BP3V07_VALUE_TYPE   _uint16_t
-/* BP3V08 (little_endian)*/
-#define   BP3V08_BIT_OFS  48
-#define   BP3V08_VALUE_TYPE   _uint16_t
+/* BP03_V05_08 */
+#define   BP03_V05_08_ID   0x559
+#define   BP03_V05_08_PERIOD   100
+#define   BP03_V05_08_DLC  8
+/*  Values  of BP03_V05_08 */
+/* BP03V05 (little_endian)*/
+#define   BP03V05_BIT_OFS  0
+#define   BP03V05_VALUE_TYPE   _uint16_t
+/* BP03V06 (little_endian)*/
+#define   BP03V06_BIT_OFS  16
+#define   BP03V06_VALUE_TYPE   _uint16_t
+/* BP03V07 (little_endian)*/
+#define   BP03V07_BIT_OFS  32
+#define   BP03V07_VALUE_TYPE   _uint16_t
+/* BP03V08 (little_endian)*/
+#define   BP03V08_BIT_OFS  48
+#define   BP03V08_VALUE_TYPE   _uint16_t
 
-/* BP3_V09_12 */
-#define   BP3_V09_12_ID   0x55a
-#define   BP3_V09_12_PERIOD   100
-#define   BP3_V09_12_DLC  8
-/*  Values  of BP3_V09_12 */
-/* BP3V09 (little_endian)*/
-#define   BP3V09_BIT_OFS  0
-#define   BP3V09_VALUE_TYPE   _uint16_t
-/* BP3V10 (little_endian)*/
-#define   BP3V10_BIT_OFS  16
-#define   BP3V10_VALUE_TYPE   _uint16_t
-/* BP3V11 (little_endian)*/
-#define   BP3V11_BIT_OFS  32
-#define   BP3V11_VALUE_TYPE   _uint16_t
-/* BP3V12 (little_endian)*/
-#define   BP3V12_BIT_OFS  48
-#define   BP3V12_VALUE_TYPE   _uint16_t
+/* BP03_V09_12 */
+#define   BP03_V09_12_ID   0x55a
+#define   BP03_V09_12_PERIOD   100
+#define   BP03_V09_12_DLC  8
+/*  Values  of BP03_V09_12 */
+/* BP03V09 (little_endian)*/
+#define   BP03V09_BIT_OFS  0
+#define   BP03V09_VALUE_TYPE   _uint16_t
+/* BP03V10 (little_endian)*/
+#define   BP03V10_BIT_OFS  16
+#define   BP03V10_VALUE_TYPE   _uint16_t
+/* BP03V11 (little_endian)*/
+#define   BP03V11_BIT_OFS  32
+#define   BP03V11_VALUE_TYPE   _uint16_t
+/* BP03V12 (little_endian)*/
+#define   BP03V12_BIT_OFS  48
+#define   BP03V12_VALUE_TYPE   _uint16_t
 
-/* BP3_V13_14 */
-#define   BP3_V13_14_ID   0x55b
-#define   BP3_V13_14_PERIOD   100
-#define   BP3_V13_14_DLC  8
-/*  Values  of BP3_V13_14 */
-/* BP3V13 (little_endian)*/
-#define   BP3V13_BIT_OFS  0
-#define   BP3V13_VALUE_TYPE   _uint16_t
-/* BP3V14 (little_endian)*/
-#define   BP3V14_BIT_OFS  16
-#define   BP3V14_VALUE_TYPE   _uint16_t
+/* BP03_V13_14 */
+#define   BP03_V13_14_ID   0x55b
+#define   BP03_V13_14_PERIOD   100
+#define   BP03_V13_14_DLC  8
+/*  Values  of BP03_V13_14 */
+/* BP03V13 (little_endian)*/
+#define   BP03V13_BIT_OFS  0
+#define   BP03V13_VALUE_TYPE   _uint16_t
+/* BP03V14 (little_endian)*/
+#define   BP03V14_BIT_OFS  16
+#define   BP03V14_VALUE_TYPE   _uint16_t
 
-/* BP4_V01_04 */
-#define   BP4_V01_04_ID   0x55c
-#define   BP4_V01_04_PERIOD   100
-#define   BP4_V01_04_DLC  8
-/*  Values  of BP4_V01_04 */
-/* BP4V01 (little_endian)*/
-#define   BP4V01_BIT_OFS  0
-#define   BP4V01_VALUE_TYPE   _uint16_t
-/* BP4V02 (little_endian)*/
-#define   BP4V02_BIT_OFS  16
-#define   BP4V02_VALUE_TYPE   _uint16_t
-/* BP4V03 (little_endian)*/
-#define   BP4V03_BIT_OFS  32
-#define   BP4V03_VALUE_TYPE   _uint16_t
-/* BP4V04 (little_endian)*/
-#define   BP4V04_BIT_OFS  48
-#define   BP4V04_VALUE_TYPE   _uint16_t
+/* BP04_V01_04 */
+#define   BP04_V01_04_ID   0x55c
+#define   BP04_V01_04_PERIOD   100
+#define   BP04_V01_04_DLC  8
+/*  Values  of BP04_V01_04 */
+/* BP04V01 (little_endian)*/
+#define   BP04V01_BIT_OFS  0
+#define   BP04V01_VALUE_TYPE   _uint16_t
+/* BP04V02 (little_endian)*/
+#define   BP04V02_BIT_OFS  16
+#define   BP04V02_VALUE_TYPE   _uint16_t
+/* BP04V03 (little_endian)*/
+#define   BP04V03_BIT_OFS  32
+#define   BP04V03_VALUE_TYPE   _uint16_t
+/* BP04V04 (little_endian)*/
+#define   BP04V04_BIT_OFS  48
+#define   BP04V04_VALUE_TYPE   _uint16_t
 
-/* BP4_V05_08 */
-#define   BP4_V05_08_ID   0x55d
-#define   BP4_V05_08_PERIOD   100
-#define   BP4_V05_08_DLC  8
-/*  Values  of BP4_V05_08 */
-/* BP4V05 (little_endian)*/
-#define   BP4V05_BIT_OFS  0
-#define   BP4V05_VALUE_TYPE   _uint16_t
-/* BP4V06 (little_endian)*/
-#define   BP4V06_BIT_OFS  16
-#define   BP4V06_VALUE_TYPE   _uint16_t
-/* BP4V07 (little_endian)*/
-#define   BP4V07_BIT_OFS  32
-#define   BP4V07_VALUE_TYPE   _uint16_t
-/* BP4V08 (little_endian)*/
-#define   BP4V08_BIT_OFS  48
-#define   BP4V08_VALUE_TYPE   _uint16_t
+/* BP04_V05_08 */
+#define   BP04_V05_08_ID   0x55d
+#define   BP04_V05_08_PERIOD   100
+#define   BP04_V05_08_DLC  8
+/*  Values  of BP04_V05_08 */
+/* BP04V05 (little_endian)*/
+#define   BP04V05_BIT_OFS  0
+#define   BP04V05_VALUE_TYPE   _uint16_t
+/* BP04V06 (little_endian)*/
+#define   BP04V06_BIT_OFS  16
+#define   BP04V06_VALUE_TYPE   _uint16_t
+/* BP04V07 (little_endian)*/
+#define   BP04V07_BIT_OFS  32
+#define   BP04V07_VALUE_TYPE   _uint16_t
+/* BP04V08 (little_endian)*/
+#define   BP04V08_BIT_OFS  48
+#define   BP04V08_VALUE_TYPE   _uint16_t
 
-/* BP4_V09_12 */
-#define   BP4_V09_12_ID   0x55e
-#define   BP4_V09_12_PERIOD   100
-#define   BP4_V09_12_DLC  8
-/*  Values  of BP4_V09_12 */
-/* BP4V09 (little_endian)*/
-#define   BP4V09_BIT_OFS  0
-#define   BP4V09_VALUE_TYPE   _uint16_t
-/* BP4V10 (little_endian)*/
-#define   BP4V10_BIT_OFS  16
-#define   BP4V10_VALUE_TYPE   _uint16_t
-/* BP4V11 (little_endian)*/
-#define   BP4V11_BIT_OFS  32
-#define   BP4V11_VALUE_TYPE   _uint16_t
-/* BP4V12 (little_endian)*/
-#define   BP4V12_BIT_OFS  48
-#define   BP4V12_VALUE_TYPE   _uint16_t
+/* BP04_V09_12 */
+#define   BP04_V09_12_ID   0x55e
+#define   BP04_V09_12_PERIOD   100
+#define   BP04_V09_12_DLC  8
+/*  Values  of BP04_V09_12 */
+/* BP04V09 (little_endian)*/
+#define   BP04V09_BIT_OFS  0
+#define   BP04V09_VALUE_TYPE   _uint16_t
+/* BP04V10 (little_endian)*/
+#define   BP04V10_BIT_OFS  16
+#define   BP04V10_VALUE_TYPE   _uint16_t
+/* BP04V11 (little_endian)*/
+#define   BP04V11_BIT_OFS  32
+#define   BP04V11_VALUE_TYPE   _uint16_t
+/* BP04V12 (little_endian)*/
+#define   BP04V12_BIT_OFS  48
+#define   BP04V12_VALUE_TYPE   _uint16_t
 
-/* BP4_V13_14 */
-#define   BP4_V13_14_ID   0x55f
-#define   BP4_V13_14_PERIOD   100
-#define   BP4_V13_14_DLC  8
-/*  Values  of BP4_V13_14 */
-/* BP4V13 (little_endian)*/
-#define   BP4V13_BIT_OFS  0
-#define   BP4V13_VALUE_TYPE   _uint16_t
-/* BP4V14 (little_endian)*/
-#define   BP4V14_BIT_OFS  16
-#define   BP4V14_VALUE_TYPE   _uint16_t
+/* BP04_V13_14 */
+#define   BP04_V13_14_ID   0x55f
+#define   BP04_V13_14_PERIOD   100
+#define   BP04_V13_14_DLC  8
+/*  Values  of BP04_V13_14 */
+/* BP04V13 (little_endian)*/
+#define   BP04V13_BIT_OFS  0
+#define   BP04V13_VALUE_TYPE   _uint16_t
+/* BP04V14 (little_endian)*/
+#define   BP04V14_BIT_OFS  16
+#define   BP04V14_VALUE_TYPE   _uint16_t
 
-/* BP5_V01_04 */
-#define   BP5_V01_04_ID   0x560
-#define   BP5_V01_04_PERIOD   100
-#define   BP5_V01_04_DLC  8
-/*  Values  of BP5_V01_04 */
-/* BP5V01 (little_endian)*/
-#define   BP5V01_BIT_OFS  0
-#define   BP5V01_VALUE_TYPE   _uint16_t
-/* BP5V02 (little_endian)*/
-#define   BP5V02_BIT_OFS  16
-#define   BP5V02_VALUE_TYPE   _uint16_t
-/* BP5V03 (little_endian)*/
-#define   BP5V03_BIT_OFS  32
-#define   BP5V03_VALUE_TYPE   _uint16_t
-/* BP5V04 (little_endian)*/
-#define   BP5V04_BIT_OFS  48
-#define   BP5V04_VALUE_TYPE   _uint16_t
+/* BP05_V01_04 */
+#define   BP05_V01_04_ID   0x560
+#define   BP05_V01_04_PERIOD   100
+#define   BP05_V01_04_DLC  8
+/*  Values  of BP05_V01_04 */
+/* BP05V01 (little_endian)*/
+#define   BP05V01_BIT_OFS  0
+#define   BP05V01_VALUE_TYPE   _uint16_t
+/* BP05V02 (little_endian)*/
+#define   BP05V02_BIT_OFS  16
+#define   BP05V02_VALUE_TYPE   _uint16_t
+/* BP05V03 (little_endian)*/
+#define   BP05V03_BIT_OFS  32
+#define   BP05V03_VALUE_TYPE   _uint16_t
+/* BP05V04 (little_endian)*/
+#define   BP05V04_BIT_OFS  48
+#define   BP05V04_VALUE_TYPE   _uint16_t
 
-/* BP5_V05_08 */
-#define   BP5_V05_08_ID   0x561
-#define   BP5_V05_08_PERIOD   100
-#define   BP5_V05_08_DLC  8
-/*  Values  of BP5_V05_08 */
-/* BP5V05 (little_endian)*/
-#define   BP5V05_BIT_OFS  0
-#define   BP5V05_VALUE_TYPE   _uint16_t
-/* BP5V06 (little_endian)*/
-#define   BP5V06_BIT_OFS  16
-#define   BP5V06_VALUE_TYPE   _uint16_t
-/* BP5V07 (little_endian)*/
-#define   BP5V07_BIT_OFS  32
-#define   BP5V07_VALUE_TYPE   _uint16_t
-/* BP5V08 (little_endian)*/
-#define   BP5V08_BIT_OFS  48
-#define   BP5V08_VALUE_TYPE   _uint16_t
+/* BP05_V05_08 */
+#define   BP05_V05_08_ID   0x561
+#define   BP05_V05_08_PERIOD   100
+#define   BP05_V05_08_DLC  8
+/*  Values  of BP05_V05_08 */
+/* BP05V05 (little_endian)*/
+#define   BP05V05_BIT_OFS  0
+#define   BP05V05_VALUE_TYPE   _uint16_t
+/* BP05V06 (little_endian)*/
+#define   BP05V06_BIT_OFS  16
+#define   BP05V06_VALUE_TYPE   _uint16_t
+/* BP05V07 (little_endian)*/
+#define   BP05V07_BIT_OFS  32
+#define   BP05V07_VALUE_TYPE   _uint16_t
+/* BP05V08 (little_endian)*/
+#define   BP05V08_BIT_OFS  48
+#define   BP05V08_VALUE_TYPE   _uint16_t
 
-/* BP5_V09_12 */
-#define   BP5_V09_12_ID   0x562
-#define   BP5_V09_12_PERIOD   100
-#define   BP5_V09_12_DLC  8
-/*  Values  of BP5_V09_12 */
-/* BP5V09 (little_endian)*/
-#define   BP5V09_BIT_OFS  0
-#define   BP5V09_VALUE_TYPE   _uint16_t
-/* BP5V10 (little_endian)*/
-#define   BP5V10_BIT_OFS  16
-#define   BP5V10_VALUE_TYPE   _uint16_t
-/* BP5V11 (little_endian)*/
-#define   BP5V11_BIT_OFS  32
-#define   BP5V11_VALUE_TYPE   _uint16_t
-/* BP5V12 (little_endian)*/
-#define   BP5V12_BIT_OFS  48
-#define   BP5V12_VALUE_TYPE   _uint16_t
+/* BP05_V09_12 */
+#define   BP05_V09_12_ID   0x562
+#define   BP05_V09_12_PERIOD   100
+#define   BP05_V09_12_DLC  8
+/*  Values  of BP05_V09_12 */
+/* BP05V09 (little_endian)*/
+#define   BP05V09_BIT_OFS  0
+#define   BP05V09_VALUE_TYPE   _uint16_t
+/* BP05V10 (little_endian)*/
+#define   BP05V10_BIT_OFS  16
+#define   BP05V10_VALUE_TYPE   _uint16_t
+/* BP05V11 (little_endian)*/
+#define   BP05V11_BIT_OFS  32
+#define   BP05V11_VALUE_TYPE   _uint16_t
+/* BP05V12 (little_endian)*/
+#define   BP05V12_BIT_OFS  48
+#define   BP05V12_VALUE_TYPE   _uint16_t
 
-/* BP5_V13_14 */
-#define   BP5_V13_14_ID   0x563
-#define   BP5_V13_14_PERIOD   100
-#define   BP5_V13_14_DLC  8
-/*  Values  of BP5_V13_14 */
-/* BP5V13 (little_endian)*/
-#define   BP5V13_BIT_OFS  0
-#define   BP5V13_VALUE_TYPE   _uint16_t
-/* BP5V14 (little_endian)*/
-#define   BP5V14_BIT_OFS  16
-#define   BP5V14_VALUE_TYPE   _uint16_t
+/* BP05_V13_14 */
+#define   BP05_V13_14_ID   0x563
+#define   BP05_V13_14_PERIOD   100
+#define   BP05_V13_14_DLC  8
+/*  Values  of BP05_V13_14 */
+/* BP05V13 (little_endian)*/
+#define   BP05V13_BIT_OFS  0
+#define   BP05V13_VALUE_TYPE   _uint16_t
+/* BP05V14 (little_endian)*/
+#define   BP05V14_BIT_OFS  16
+#define   BP05V14_VALUE_TYPE   _uint16_t
 
-/* BP6_V01_04 */
-#define   BP6_V01_04_ID   0x564
-#define   BP6_V01_04_PERIOD   100
-#define   BP6_V01_04_DLC  8
-/*  Values  of BP6_V01_04 */
-/* BP6V01 (little_endian)*/
-#define   BP6V01_BIT_OFS  0
-#define   BP6V01_VALUE_TYPE   _uint16_t
-/* BP6V02 (little_endian)*/
-#define   BP6V02_BIT_OFS  16
-#define   BP6V02_VALUE_TYPE   _uint16_t
-/* BP6V03 (little_endian)*/
-#define   BP6V03_BIT_OFS  32
-#define   BP6V03_VALUE_TYPE   _uint16_t
-/* BP6V04 (little_endian)*/
-#define   BP6V04_BIT_OFS  48
-#define   BP6V04_VALUE_TYPE   _uint16_t
+/* BP06_V01_04 */
+#define   BP06_V01_04_ID   0x564
+#define   BP06_V01_04_PERIOD   100
+#define   BP06_V01_04_DLC  8
+/*  Values  of BP06_V01_04 */
+/* BP06V01 (little_endian)*/
+#define   BP06V01_BIT_OFS  0
+#define   BP06V01_VALUE_TYPE   _uint16_t
+/* BP06V02 (little_endian)*/
+#define   BP06V02_BIT_OFS  16
+#define   BP06V02_VALUE_TYPE   _uint16_t
+/* BP06V03 (little_endian)*/
+#define   BP06V03_BIT_OFS  32
+#define   BP06V03_VALUE_TYPE   _uint16_t
+/* BP06V04 (little_endian)*/
+#define   BP06V04_BIT_OFS  48
+#define   BP06V04_VALUE_TYPE   _uint16_t
 
-/* BP6_V05_08 */
-#define   BP6_V05_08_ID   0x565
-#define   BP6_V05_08_PERIOD   100
-#define   BP6_V05_08_DLC  8
-/*  Values  of BP6_V05_08 */
-/* BP6V05 (little_endian)*/
-#define   BP6V05_BIT_OFS  0
-#define   BP6V05_VALUE_TYPE   _uint16_t
-/* BP6V06 (little_endian)*/
-#define   BP6V06_BIT_OFS  16
-#define   BP6V06_VALUE_TYPE   _uint16_t
-/* BP6V07 (little_endian)*/
-#define   BP6V07_BIT_OFS  32
-#define   BP6V07_VALUE_TYPE   _uint16_t
-/* BP6V08 (little_endian)*/
-#define   BP6V08_BIT_OFS  48
-#define   BP6V08_VALUE_TYPE   _uint16_t
+/* BP06_V05_08 */
+#define   BP06_V05_08_ID   0x565
+#define   BP06_V05_08_PERIOD   100
+#define   BP06_V05_08_DLC  8
+/*  Values  of BP06_V05_08 */
+/* BP06V05 (little_endian)*/
+#define   BP06V05_BIT_OFS  0
+#define   BP06V05_VALUE_TYPE   _uint16_t
+/* BP06V06 (little_endian)*/
+#define   BP06V06_BIT_OFS  16
+#define   BP06V06_VALUE_TYPE   _uint16_t
+/* BP06V07 (little_endian)*/
+#define   BP06V07_BIT_OFS  32
+#define   BP06V07_VALUE_TYPE   _uint16_t
+/* BP06V08 (little_endian)*/
+#define   BP06V08_BIT_OFS  48
+#define   BP06V08_VALUE_TYPE   _uint16_t
 
-/* BP6_V09_12 */
-#define   BP6_V09_12_ID   0x566
-#define   BP6_V09_12_PERIOD   100
-#define   BP6_V09_12_DLC  8
-/*  Values  of BP6_V09_12 */
-/* BP6V09 (little_endian)*/
-#define   BP6V09_BIT_OFS  0
-#define   BP6V09_VALUE_TYPE   _uint16_t
-/* BP6V10 (little_endian)*/
-#define   BP6V10_BIT_OFS  16
-#define   BP6V10_VALUE_TYPE   _uint16_t
-/* BP6V11 (little_endian)*/
-#define   BP6V11_BIT_OFS  32
-#define   BP6V11_VALUE_TYPE   _uint16_t
-/* BP6V12 (little_endian)*/
-#define   BP6V12_BIT_OFS  48
-#define   BP6V12_VALUE_TYPE   _uint16_t
+/* BP06_V09_12 */
+#define   BP06_V09_12_ID   0x566
+#define   BP06_V09_12_PERIOD   100
+#define   BP06_V09_12_DLC  8
+/*  Values  of BP06_V09_12 */
+/* BP06V09 (little_endian)*/
+#define   BP06V09_BIT_OFS  0
+#define   BP06V09_VALUE_TYPE   _uint16_t
+/* BP06V10 (little_endian)*/
+#define   BP06V10_BIT_OFS  16
+#define   BP06V10_VALUE_TYPE   _uint16_t
+/* BP06V11 (little_endian)*/
+#define   BP06V11_BIT_OFS  32
+#define   BP06V11_VALUE_TYPE   _uint16_t
+/* BP06V12 (little_endian)*/
+#define   BP06V12_BIT_OFS  48
+#define   BP06V12_VALUE_TYPE   _uint16_t
 
-/* BP6_V13_14 */
-#define   BP6_V13_14_ID   0x567
-#define   BP6_V13_14_PERIOD   100
-#define   BP6_V13_14_DLC  8
-/*  Values  of BP6_V13_14 */
-/* BP6V13 (little_endian)*/
-#define   BP6V13_BIT_OFS  0
-#define   BP6V13_VALUE_TYPE   _uint16_t
-/* BP6V14 (little_endian)*/
-#define   BP6V14_BIT_OFS  16
-#define   BP6V14_VALUE_TYPE   _uint16_t
+/* BP06_V13_14 */
+#define   BP06_V13_14_ID   0x567
+#define   BP06_V13_14_PERIOD   100
+#define   BP06_V13_14_DLC  8
+/*  Values  of BP06_V13_14 */
+/* BP06V13 (little_endian)*/
+#define   BP06V13_BIT_OFS  0
+#define   BP06V13_VALUE_TYPE   _uint16_t
+/* BP06V14 (little_endian)*/
+#define   BP06V14_BIT_OFS  16
+#define   BP06V14_VALUE_TYPE   _uint16_t
 
-/* BP7_V01_04 */
-#define   BP7_V01_04_ID   0x568
-#define   BP7_V01_04_PERIOD   100
-#define   BP7_V01_04_DLC  8
-/*  Values  of BP7_V01_04 */
-/* BP7V01 (little_endian)*/
-#define   BP7V01_BIT_OFS  0
-#define   BP7V01_VALUE_TYPE   _uint16_t
-/* BP7V02 (little_endian)*/
-#define   BP7V02_BIT_OFS  16
-#define   BP7V02_VALUE_TYPE   _uint16_t
-/* BP7V03 (little_endian)*/
-#define   BP7V03_BIT_OFS  32
-#define   BP7V03_VALUE_TYPE   _uint16_t
-/* BP7V04 (little_endian)*/
-#define   BP7V04_BIT_OFS  48
-#define   BP7V04_VALUE_TYPE   _uint16_t
+/* BP07_V01_04 */
+#define   BP07_V01_04_ID   0x568
+#define   BP07_V01_04_PERIOD   100
+#define   BP07_V01_04_DLC  8
+/*  Values  of BP07_V01_04 */
+/* BP07V01 (little_endian)*/
+#define   BP07V01_BIT_OFS  0
+#define   BP07V01_VALUE_TYPE   _uint16_t
+/* BP07V02 (little_endian)*/
+#define   BP07V02_BIT_OFS  16
+#define   BP07V02_VALUE_TYPE   _uint16_t
+/* BP07V03 (little_endian)*/
+#define   BP07V03_BIT_OFS  32
+#define   BP07V03_VALUE_TYPE   _uint16_t
+/* BP07V04 (little_endian)*/
+#define   BP07V04_BIT_OFS  48
+#define   BP07V04_VALUE_TYPE   _uint16_t
 
-/* BP7_V05_08 */
-#define   BP7_V05_08_ID   0x569
-#define   BP7_V05_08_PERIOD   100
-#define   BP7_V05_08_DLC  8
-/*  Values  of BP7_V05_08 */
-/* BP7V05 (little_endian)*/
-#define   BP7V05_BIT_OFS  0
-#define   BP7V05_VALUE_TYPE   _uint16_t
-/* BP7V06 (little_endian)*/
-#define   BP7V06_BIT_OFS  16
-#define   BP7V06_VALUE_TYPE   _uint16_t
-/* BP7V07 (little_endian)*/
-#define   BP7V07_BIT_OFS  32
-#define   BP7V07_VALUE_TYPE   _uint16_t
-/* BP7V08 (little_endian)*/
-#define   BP7V08_BIT_OFS  48
-#define   BP7V08_VALUE_TYPE   _uint16_t
+/* BP07_V05_08 */
+#define   BP07_V05_08_ID   0x569
+#define   BP07_V05_08_PERIOD   100
+#define   BP07_V05_08_DLC  8
+/*  Values  of BP07_V05_08 */
+/* BP07V05 (little_endian)*/
+#define   BP07V05_BIT_OFS  0
+#define   BP07V05_VALUE_TYPE   _uint16_t
+/* BP07V06 (little_endian)*/
+#define   BP07V06_BIT_OFS  16
+#define   BP07V06_VALUE_TYPE   _uint16_t
+/* BP07V07 (little_endian)*/
+#define   BP07V07_BIT_OFS  32
+#define   BP07V07_VALUE_TYPE   _uint16_t
+/* BP07V08 (little_endian)*/
+#define   BP07V08_BIT_OFS  48
+#define   BP07V08_VALUE_TYPE   _uint16_t
 
-/* BP7_V09_12 */
-#define   BP7_V09_12_ID   0x56a
-#define   BP7_V09_12_PERIOD   100
-#define   BP7_V09_12_DLC  8
-/*  Values  of BP7_V09_12 */
-/* BP7V09 (little_endian)*/
-#define   BP7V09_BIT_OFS  0
-#define   BP7V09_VALUE_TYPE   _uint16_t
-/* BP7V10 (little_endian)*/
-#define   BP7V10_BIT_OFS  16
-#define   BP7V10_VALUE_TYPE   _uint16_t
-/* BP7V11 (little_endian)*/
-#define   BP7V11_BIT_OFS  32
-#define   BP7V11_VALUE_TYPE   _uint16_t
-/* BP7V12 (little_endian)*/
-#define   BP7V12_BIT_OFS  48
-#define   BP7V12_VALUE_TYPE   _uint16_t
+/* BP07_V09_12 */
+#define   BP07_V09_12_ID   0x56a
+#define   BP07_V09_12_PERIOD   100
+#define   BP07_V09_12_DLC  8
+/*  Values  of BP07_V09_12 */
+/* BP07V09 (little_endian)*/
+#define   BP07V09_BIT_OFS  0
+#define   BP07V09_VALUE_TYPE   _uint16_t
+/* BP07V10 (little_endian)*/
+#define   BP07V10_BIT_OFS  16
+#define   BP07V10_VALUE_TYPE   _uint16_t
+/* BP07V11 (little_endian)*/
+#define   BP07V11_BIT_OFS  32
+#define   BP07V11_VALUE_TYPE   _uint16_t
+/* BP07V12 (little_endian)*/
+#define   BP07V12_BIT_OFS  48
+#define   BP07V12_VALUE_TYPE   _uint16_t
 
-/* BP7_V13_14 */
-#define   BP7_V13_14_ID   0x56b
-#define   BP7_V13_14_PERIOD   100
-#define   BP7_V13_14_DLC  8
-/*  Values  of BP7_V13_14 */
-/* BP7V13 (little_endian)*/
-#define   BP7V13_BIT_OFS  0
-#define   BP7V13_VALUE_TYPE   _uint16_t
-/* BP7V14 (little_endian)*/
-#define   BP7V14_BIT_OFS  16
-#define   BP7V14_VALUE_TYPE   _uint16_t
+/* BP07_V13_14 */
+#define   BP07_V13_14_ID   0x56b
+#define   BP07_V13_14_PERIOD   100
+#define   BP07_V13_14_DLC  8
+/*  Values  of BP07_V13_14 */
+/* BP07V13 (little_endian)*/
+#define   BP07V13_BIT_OFS  0
+#define   BP07V13_VALUE_TYPE   _uint16_t
+/* BP07V14 (little_endian)*/
+#define   BP07V14_BIT_OFS  16
+#define   BP07V14_VALUE_TYPE   _uint16_t
 
-/* BP8_V01_04 */
-#define   BP8_V01_04_ID   0x56c
-#define   BP8_V01_04_PERIOD   100
-#define   BP8_V01_04_DLC  8
-/*  Values  of BP8_V01_04 */
-/* BP8V01 (little_endian)*/
-#define   BP8V01_BIT_OFS  0
-#define   BP8V01_VALUE_TYPE   _uint16_t
-/* BP8V02 (little_endian)*/
-#define   BP8V02_BIT_OFS  16
-#define   BP8V02_VALUE_TYPE   _uint16_t
-/* BP8V03 (little_endian)*/
-#define   BP8V03_BIT_OFS  32
-#define   BP8V03_VALUE_TYPE   _uint16_t
-/* BP8V04 (little_endian)*/
-#define   BP8V04_BIT_OFS  48
-#define   BP8V04_VALUE_TYPE   _uint16_t
+/* BP08_V01_04 */
+#define   BP08_V01_04_ID   0x56c
+#define   BP08_V01_04_PERIOD   100
+#define   BP08_V01_04_DLC  8
+/*  Values  of BP08_V01_04 */
+/* BP08V01 (little_endian)*/
+#define   BP08V01_BIT_OFS  0
+#define   BP08V01_VALUE_TYPE   _uint16_t
+/* BP08V02 (little_endian)*/
+#define   BP08V02_BIT_OFS  16
+#define   BP08V02_VALUE_TYPE   _uint16_t
+/* BP08V03 (little_endian)*/
+#define   BP08V03_BIT_OFS  32
+#define   BP08V03_VALUE_TYPE   _uint16_t
+/* BP08V04 (little_endian)*/
+#define   BP08V04_BIT_OFS  48
+#define   BP08V04_VALUE_TYPE   _uint16_t
 
-/* BP8_V05_08 */
-#define   BP8_V05_08_ID   0x56d
-#define   BP8_V05_08_PERIOD   100
-#define   BP8_V05_08_DLC  8
-/*  Values  of BP8_V05_08 */
-/* BP8V05 (little_endian)*/
-#define   BP8V05_BIT_OFS  0
-#define   BP8V05_VALUE_TYPE   _uint16_t
-/* BP8V06 (little_endian)*/
-#define   BP8V06_BIT_OFS  16
-#define   BP8V06_VALUE_TYPE   _uint16_t
-/* BP8V07 (little_endian)*/
-#define   BP8V07_BIT_OFS  32
-#define   BP8V07_VALUE_TYPE   _uint16_t
-/* BP8V08 (little_endian)*/
-#define   BP8V08_BIT_OFS  48
-#define   BP8V08_VALUE_TYPE   _uint16_t
+/* BP08_V05_08 */
+#define   BP08_V05_08_ID   0x56d
+#define   BP08_V05_08_PERIOD   100
+#define   BP08_V05_08_DLC  8
+/*  Values  of BP08_V05_08 */
+/* BP08V05 (little_endian)*/
+#define   BP08V05_BIT_OFS  0
+#define   BP08V05_VALUE_TYPE   _uint16_t
+/* BP08V06 (little_endian)*/
+#define   BP08V06_BIT_OFS  16
+#define   BP08V06_VALUE_TYPE   _uint16_t
+/* BP08V07 (little_endian)*/
+#define   BP08V07_BIT_OFS  32
+#define   BP08V07_VALUE_TYPE   _uint16_t
+/* BP08V08 (little_endian)*/
+#define   BP08V08_BIT_OFS  48
+#define   BP08V08_VALUE_TYPE   _uint16_t
 
-/* BP8_V09_12 */
-#define   BP8_V09_12_ID   0x56e
-#define   BP8_V09_12_PERIOD   100
-#define   BP8_V09_12_DLC  8
-/*  Values  of BP8_V09_12 */
-/* BP8V09 (little_endian)*/
-#define   BP8V09_BIT_OFS  0
-#define   BP8V09_VALUE_TYPE   _uint16_t
-/* BP8V10 (little_endian)*/
-#define   BP8V10_BIT_OFS  16
-#define   BP8V10_VALUE_TYPE   _uint16_t
-/* BP8V11 (little_endian)*/
-#define   BP8V11_BIT_OFS  32
-#define   BP8V11_VALUE_TYPE   _uint16_t
-/* BP8V12 (little_endian)*/
-#define   BP8V12_BIT_OFS  48
-#define   BP8V12_VALUE_TYPE   _uint16_t
+/* BP08_V09_12 */
+#define   BP08_V09_12_ID   0x56e
+#define   BP08_V09_12_PERIOD   100
+#define   BP08_V09_12_DLC  8
+/*  Values  of BP08_V09_12 */
+/* BP08V09 (little_endian)*/
+#define   BP08V09_BIT_OFS  0
+#define   BP08V09_VALUE_TYPE   _uint16_t
+/* BP08V10 (little_endian)*/
+#define   BP08V10_BIT_OFS  16
+#define   BP08V10_VALUE_TYPE   _uint16_t
+/* BP08V11 (little_endian)*/
+#define   BP08V11_BIT_OFS  32
+#define   BP08V11_VALUE_TYPE   _uint16_t
+/* BP08V12 (little_endian)*/
+#define   BP08V12_BIT_OFS  48
+#define   BP08V12_VALUE_TYPE   _uint16_t
 
-/* BP8_V13_14 */
-#define   BP8_V13_14_ID   0x56f
-#define   BP8_V13_14_PERIOD   100
-#define   BP8_V13_14_DLC  8
-/*  Values  of BP8_V13_14 */
-/* BP8V13 (little_endian)*/
-#define   BP8V13_BIT_OFS  0
-#define   BP8V13_VALUE_TYPE   _uint16_t
-/* BP8V14 (little_endian)*/
-#define   BP8V14_BIT_OFS  16
-#define   BP8V14_VALUE_TYPE   _uint16_t
+/* BP08_V13_14 */
+#define   BP08_V13_14_ID   0x56f
+#define   BP08_V13_14_PERIOD   100
+#define   BP08_V13_14_DLC  8
+/*  Values  of BP08_V13_14 */
+/* BP08V13 (little_endian)*/
+#define   BP08V13_BIT_OFS  0
+#define   BP08V13_VALUE_TYPE   _uint16_t
+/* BP08V14 (little_endian)*/
+#define   BP08V14_BIT_OFS  16
+#define   BP08V14_VALUE_TYPE   _uint16_t
 
-/* BP9_V01_04 */
-#define   BP9_V01_04_ID   0x570
-#define   BP9_V01_04_PERIOD   100
-#define   BP9_V01_04_DLC  8
-/*  Values  of BP9_V01_04 */
-/* BP9V01 (little_endian)*/
-#define   BP9V01_BIT_OFS  0
-#define   BP9V01_VALUE_TYPE   _uint16_t
-/* BP9V02 (little_endian)*/
-#define   BP9V02_BIT_OFS  16
-#define   BP9V02_VALUE_TYPE   _uint16_t
-/* BP9V03 (little_endian)*/
-#define   BP9V03_BIT_OFS  32
-#define   BP9V03_VALUE_TYPE   _uint16_t
-/* BP9V04 (little_endian)*/
-#define   BP9V04_BIT_OFS  48
-#define   BP9V04_VALUE_TYPE   _uint16_t
+/* BP09_V01_04 */
+#define   BP09_V01_04_ID   0x570
+#define   BP09_V01_04_PERIOD   100
+#define   BP09_V01_04_DLC  8
+/*  Values  of BP09_V01_04 */
+/* BP09V01 (little_endian)*/
+#define   BP09V01_BIT_OFS  0
+#define   BP09V01_VALUE_TYPE   _uint16_t
+/* BP09V02 (little_endian)*/
+#define   BP09V02_BIT_OFS  16
+#define   BP09V02_VALUE_TYPE   _uint16_t
+/* BP09V03 (little_endian)*/
+#define   BP09V03_BIT_OFS  32
+#define   BP09V03_VALUE_TYPE   _uint16_t
+/* BP09V04 (little_endian)*/
+#define   BP09V04_BIT_OFS  48
+#define   BP09V04_VALUE_TYPE   _uint16_t
 
-/* BP9_V05_08 */
-#define   BP9_V05_08_ID   0x571
-#define   BP9_V05_08_PERIOD   100
-#define   BP9_V05_08_DLC  8
-/*  Values  of BP9_V05_08 */
-/* BP9V05 (little_endian)*/
-#define   BP9V05_BIT_OFS  0
-#define   BP9V05_VALUE_TYPE   _uint16_t
-/* BP9V06 (little_endian)*/
-#define   BP9V06_BIT_OFS  16
-#define   BP9V06_VALUE_TYPE   _uint16_t
-/* BP9V07 (little_endian)*/
-#define   BP9V07_BIT_OFS  32
-#define   BP9V07_VALUE_TYPE   _uint16_t
-/* BP9V08 (little_endian)*/
-#define   BP9V08_BIT_OFS  48
-#define   BP9V08_VALUE_TYPE   _uint16_t
+/* BP09_V05_08 */
+#define   BP09_V05_08_ID   0x571
+#define   BP09_V05_08_PERIOD   100
+#define   BP09_V05_08_DLC  8
+/*  Values  of BP09_V05_08 */
+/* BP09V05 (little_endian)*/
+#define   BP09V05_BIT_OFS  0
+#define   BP09V05_VALUE_TYPE   _uint16_t
+/* BP09V06 (little_endian)*/
+#define   BP09V06_BIT_OFS  16
+#define   BP09V06_VALUE_TYPE   _uint16_t
+/* BP09V07 (little_endian)*/
+#define   BP09V07_BIT_OFS  32
+#define   BP09V07_VALUE_TYPE   _uint16_t
+/* BP09V08 (little_endian)*/
+#define   BP09V08_BIT_OFS  48
+#define   BP09V08_VALUE_TYPE   _uint16_t
 
-/* BP9_V09_12 */
-#define   BP9_V09_12_ID   0x572
-#define   BP9_V09_12_PERIOD   100
-#define   BP9_V09_12_DLC  8
-/*  Values  of BP9_V09_12 */
-/* BP9V09 (little_endian)*/
-#define   BP9V09_BIT_OFS  0
-#define   BP9V09_VALUE_TYPE   _uint16_t
-/* BP9V10 (little_endian)*/
-#define   BP9V10_BIT_OFS  16
-#define   BP9V10_VALUE_TYPE   _uint16_t
-/* BP9V11 (little_endian)*/
-#define   BP9V11_BIT_OFS  32
-#define   BP9V11_VALUE_TYPE   _uint16_t
-/* BP9V12 (little_endian)*/
-#define   BP9V12_BIT_OFS  48
-#define   BP9V12_VALUE_TYPE   _uint16_t
+/* BP09_V09_12 */
+#define   BP09_V09_12_ID   0x572
+#define   BP09_V09_12_PERIOD   100
+#define   BP09_V09_12_DLC  8
+/*  Values  of BP09_V09_12 */
+/* BP09V09 (little_endian)*/
+#define   BP09V09_BIT_OFS  0
+#define   BP09V09_VALUE_TYPE   _uint16_t
+/* BP09V10 (little_endian)*/
+#define   BP09V10_BIT_OFS  16
+#define   BP09V10_VALUE_TYPE   _uint16_t
+/* BP09V11 (little_endian)*/
+#define   BP09V11_BIT_OFS  32
+#define   BP09V11_VALUE_TYPE   _uint16_t
+/* BP09V12 (little_endian)*/
+#define   BP09V12_BIT_OFS  48
+#define   BP09V12_VALUE_TYPE   _uint16_t
 
-/* BP9_V13_14 */
-#define   BP9_V13_14_ID   0x573
-#define   BP9_V13_14_PERIOD   100
-#define   BP9_V13_14_DLC  8
-/*  Values  of BP9_V13_14 */
-/* BP9V13 (little_endian)*/
-#define   BP9V13_BIT_OFS  0
-#define   BP9V13_VALUE_TYPE   _uint16_t
-/* BP9V14 (little_endian)*/
-#define   BP9V14_BIT_OFS  16
-#define   BP9V14_VALUE_TYPE   _uint16_t
+/* BP09_V13_14 */
+#define   BP09_V13_14_ID   0x573
+#define   BP09_V13_14_PERIOD   100
+#define   BP09_V13_14_DLC  8
+/*  Values  of BP09_V13_14 */
+/* BP09V13 (little_endian)*/
+#define   BP09V13_BIT_OFS  0
+#define   BP09V13_VALUE_TYPE   _uint16_t
+/* BP09V14 (little_endian)*/
+#define   BP09V14_BIT_OFS  16
+#define   BP09V14_VALUE_TYPE   _uint16_t
 
 /* BP10_V01_04 */
 #define   BP10_V01_04_ID   0x574
@@ -1992,18 +2061,18 @@
 /* MsgCnt (little_endian)*/
 #define   MSGCNT_BIT_OFS  0
 #define   MSGCNT_VALUE_TYPE   _uint8_t
-/* Status_Ready (little_endian)*/
-#define   STATUS_READY_BIT_OFS  8
-#define   STATUS_READY_VALUE_TYPE   _int1_t
-/* Status_Logging (little_endian)*/
-#define   STATUS_LOGGING_BIT_OFS  9
-#define   STATUS_LOGGING_VALUE_TYPE   _int1_t
-/* Status_Triggered_Voltage (little_endian)*/
-#define   STATUS_TRIGGERED_VOLTAGE_BIT_OFS  10
-#define   STATUS_TRIGGERED_VOLTAGE_VALUE_TYPE   _int1_t
-/* Status_Triggered_Current (little_endian)*/
-#define   STATUS_TRIGGERED_CURRENT_BIT_OFS  11
-#define   STATUS_TRIGGERED_CURRENT_VALUE_TYPE   _int1_t
+/* StatusReady (little_endian)*/
+#define   STATUSREADY_BIT_OFS  8
+#define   STATUSREADY_VALUE_TYPE   _int1_t
+/* StatusLogging (little_endian)*/
+#define   STATUSLOGGING_BIT_OFS  9
+#define   STATUSLOGGING_VALUE_TYPE   _int1_t
+/* StatusTriggeredVoltage (little_endian)*/
+#define   STATUSTRIGGEREDVOLTAGE_BIT_OFS  10
+#define   STATUSTRIGGEREDVOLTAGE_VALUE_TYPE   _int1_t
+/* StatusTriggeredCurrent (little_endian)*/
+#define   STATUSTRIGGEREDCURRENT_BIT_OFS  11
+#define   STATUSTRIGGEREDCURRENT_VALUE_TYPE   _int1_t
 /* Voltage (little_endian)*/
 #define   VOLTAGE_BIT_OFS  16
 #define   VOLTAGE_VALUE_TYPE   _uint16_t
@@ -3091,74 +3160,74 @@
 #define   BP10T24_BIT_OFS  48
 #define   BP10T24_VALUE_TYPE   _uint16_t
 
-/* AREO_PRESSURE_SENSORS13_16 */
-#define   AREO_PRESSURE_SENSORS13_16_ID   0x1c9
-#define   AREO_PRESSURE_SENSORS13_16_PERIOD   100
-#define   AREO_PRESSURE_SENSORS13_16_DLC  8
-/*  Values  of AREO_PRESSURE_SENSORS13_16 */
-/* AREO_p13 (big_endian)*/
-#define   AREO_P13_BIT_OFS  0
-#define   AREO_P13_VALUE_TYPE   _uint16_t
-/* AREO_p14 (big_endian)*/
-#define   AREO_P14_BIT_OFS  16
-#define   AREO_P14_VALUE_TYPE   _uint16_t
-/* AREO_p15 (big_endian)*/
-#define   AREO_P15_BIT_OFS  32
-#define   AREO_P15_VALUE_TYPE   _uint16_t
-/* AREO_p16 (big_endian)*/
-#define   AREO_P16_BIT_OFS  48
-#define   AREO_P16_VALUE_TYPE   _uint16_t
+/* AREO_PRESSURE_SENSORS_13_16 */
+#define   AREO_PRESSURE_SENSORS_13_16_ID   0x1c9
+#define   AREO_PRESSURE_SENSORS_13_16_PERIOD   100
+#define   AREO_PRESSURE_SENSORS_13_16_DLC  8
+/*  Values  of AREO_PRESSURE_SENSORS_13_16 */
+/* AreoP13 (big_endian)*/
+#define   AREOP13_BIT_OFS  0
+#define   AREOP13_VALUE_TYPE   _uint16_t
+/* AreoP14 (big_endian)*/
+#define   AREOP14_BIT_OFS  16
+#define   AREOP14_VALUE_TYPE   _uint16_t
+/* AreoP15 (big_endian)*/
+#define   AREOP15_BIT_OFS  32
+#define   AREOP15_VALUE_TYPE   _uint16_t
+/* AreoP16 (big_endian)*/
+#define   AREOP16_BIT_OFS  48
+#define   AREOP16_VALUE_TYPE   _uint16_t
 
-/* AREO_PRESSURE_SENSORS09_12 */
-#define   AREO_PRESSURE_SENSORS09_12_ID   0x1c8
-#define   AREO_PRESSURE_SENSORS09_12_PERIOD   100
-#define   AREO_PRESSURE_SENSORS09_12_DLC  8
-/*  Values  of AREO_PRESSURE_SENSORS09_12 */
-/* AREO_p10 (big_endian)*/
-#define   AREO_P10_BIT_OFS  0
-#define   AREO_P10_VALUE_TYPE   _uint16_t
-/* AREO_p11 (big_endian)*/
-#define   AREO_P11_BIT_OFS  16
-#define   AREO_P11_VALUE_TYPE   _uint16_t
-/* AREO_p12 (big_endian)*/
-#define   AREO_P12_BIT_OFS  32
-#define   AREO_P12_VALUE_TYPE   _uint16_t
-/* AREO_p9 (big_endian)*/
-#define   AREO_P9_BIT_OFS  48
-#define   AREO_P9_VALUE_TYPE   _uint16_t
+/* AREO_PRESSURE_SENSORS_09_12 */
+#define   AREO_PRESSURE_SENSORS_09_12_ID   0x1c8
+#define   AREO_PRESSURE_SENSORS_09_12_PERIOD   100
+#define   AREO_PRESSURE_SENSORS_09_12_DLC  8
+/*  Values  of AREO_PRESSURE_SENSORS_09_12 */
+/* AreoP10 (big_endian)*/
+#define   AREOP10_BIT_OFS  0
+#define   AREOP10_VALUE_TYPE   _uint16_t
+/* AreoP11 (big_endian)*/
+#define   AREOP11_BIT_OFS  16
+#define   AREOP11_VALUE_TYPE   _uint16_t
+/* AreoP12 (big_endian)*/
+#define   AREOP12_BIT_OFS  32
+#define   AREOP12_VALUE_TYPE   _uint16_t
+/* AreoP09 (big_endian)*/
+#define   AREOP09_BIT_OFS  48
+#define   AREOP09_VALUE_TYPE   _uint16_t
 
-/* AREO_PRESSURE_SENSORS05_08 */
-#define   AREO_PRESSURE_SENSORS05_08_ID   0x1c7
-#define   AREO_PRESSURE_SENSORS05_08_PERIOD   100
-#define   AREO_PRESSURE_SENSORS05_08_DLC  8
-/*  Values  of AREO_PRESSURE_SENSORS05_08 */
-/* AREO_p5 (big_endian)*/
-#define   AREO_P5_BIT_OFS  0
-#define   AREO_P5_VALUE_TYPE   _uint16_t
-/* AREO_p6 (big_endian)*/
-#define   AREO_P6_BIT_OFS  16
-#define   AREO_P6_VALUE_TYPE   _uint16_t
-/* AREO_p7 (big_endian)*/
-#define   AREO_P7_BIT_OFS  32
-#define   AREO_P7_VALUE_TYPE   _uint16_t
-/* AREO_p8 (big_endian)*/
-#define   AREO_P8_BIT_OFS  48
-#define   AREO_P8_VALUE_TYPE   _uint16_t
+/* AREO_PRESSURE_SENSORS_05_08 */
+#define   AREO_PRESSURE_SENSORS_05_08_ID   0x1c7
+#define   AREO_PRESSURE_SENSORS_05_08_PERIOD   100
+#define   AREO_PRESSURE_SENSORS_05_08_DLC  8
+/*  Values  of AREO_PRESSURE_SENSORS_05_08 */
+/* AreoP05 (big_endian)*/
+#define   AREOP05_BIT_OFS  0
+#define   AREOP05_VALUE_TYPE   _uint16_t
+/* AreoP06 (big_endian)*/
+#define   AREOP06_BIT_OFS  16
+#define   AREOP06_VALUE_TYPE   _uint16_t
+/* AreoP07 (big_endian)*/
+#define   AREOP07_BIT_OFS  32
+#define   AREOP07_VALUE_TYPE   _uint16_t
+/* AreoP08 (big_endian)*/
+#define   AREOP08_BIT_OFS  48
+#define   AREOP08_VALUE_TYPE   _uint16_t
 
-/* AREO_PRESSURE_SENSORS01_04 */
-#define   AREO_PRESSURE_SENSORS01_04_ID   0x1c6
-#define   AREO_PRESSURE_SENSORS01_04_PERIOD   100
-#define   AREO_PRESSURE_SENSORS01_04_DLC  8
-/*  Values  of AREO_PRESSURE_SENSORS01_04 */
-/* AREO_p1 (big_endian)*/
-#define   AREO_P1_BIT_OFS  0
-#define   AREO_P1_VALUE_TYPE   _uint16_t
-/* AREO_p2 (big_endian)*/
-#define   AREO_P2_BIT_OFS  16
-#define   AREO_P2_VALUE_TYPE   _uint16_t
-/* AREO_p3 (big_endian)*/
-#define   AREO_P3_BIT_OFS  32
-#define   AREO_P3_VALUE_TYPE   _uint16_t
-/* AREO_p4 (big_endian)*/
-#define   AREO_P4_BIT_OFS  48
-#define   AREO_P4_VALUE_TYPE   _uint16_t
+/* AREO_PRESSURE_SENSORS_01_04 */
+#define   AREO_PRESSURE_SENSORS_01_04_ID   0x1c6
+#define   AREO_PRESSURE_SENSORS_01_04_PERIOD   100
+#define   AREO_PRESSURE_SENSORS_01_04_DLC  8
+/*  Values  of AREO_PRESSURE_SENSORS_01_04 */
+/* AreoP01 (big_endian)*/
+#define   AREOP01_BIT_OFS  0
+#define   AREOP01_VALUE_TYPE   _uint16_t
+/* AreoP02 (big_endian)*/
+#define   AREOP02_BIT_OFS  16
+#define   AREOP02_VALUE_TYPE   _uint16_t
+/* AreoP03 (big_endian)*/
+#define   AREOP03_BIT_OFS  32
+#define   AREOP03_VALUE_TYPE   _uint16_t
+/* AreoP04 (big_endian)*/
+#define   AREOP04_BIT_OFS  48
+#define   AREOP04_VALUE_TYPE   _uint16_t

@@ -1,5 +1,5 @@
 
-/*  AS_state  types */
+/*  ASState  types */
 typedef enum
 {
  AS_state_finish = 5,
@@ -7,17 +7,17 @@ typedef enum
  AS_state_driving  = 3,
  AS_state_ready = 2,
  AS_state_off = 1,
-} AS_state_t;
+} ASState_t;
 
-/*  EBS_state  types */
+/*  EBSState  types */
 typedef enum
 {
  EBS_state_activated = 3,
  EBS_state_armed = 2,
  EBS_state_unavailable = 1,
-} EBS_state_t;
+} EBSState_t;
 
-/*  AMI_state  types */
+/*  AMIState  types */
 typedef enum
 {
  AMI_state_autocross = 6,
@@ -26,12 +26,12 @@ typedef enum
  AMI_state_trackdrive = 3,
  AMI_state_skidpad = 2,
  AMI_state_acceleration = 1,
-} AMI_state_t;
+} AMIState_t;
 
-/*  Service_brake_state_engaged  types */
+/*  ServiceBrakeStateEngaged  types */
 typedef enum
 {
  Service_brake_state_available = 3,
  Service_brake_state_engaged = 2,
  Service_brake_state_disengaged = 1,
-} Service_brake_state_engaged_t;
+} ServiceBrakeStateEngaged_t;
