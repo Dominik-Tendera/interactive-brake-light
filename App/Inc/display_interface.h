@@ -11,17 +11,21 @@
 #include "main.h"
 #include "app.h"
 
+#define NUM_OF_COLUMNS (14)
+#define NUM_OF_ROWS (8)
+#define NUM_OF_PIXELS (128)
+#define INTERACTIVE_TIMEOUT (4*60*1000)
+#define CHARACTER_WIDTH (5)
+
 void set_brightness(uint16_t);
-void clear_buffer(void);
 void display_off(void);
 void display_on(void);
+void display_error(void);
 void one_pixel_on(uint8_t column, uint8_t row);
-void display_test_animation(void);
 void draw_char(int x, int y, char character);
 void draw_string(int x, int y, char* string);
 void display_text(char* displayed_text);
-void reset_text(void);
-void turn_off(enum BRAKE_LIGHT_Mode_t BRAKE_LIGHT_Mode, char* displayed_text);
+void conditional_display_off(enum BRAKE_LIGHT_Mode_t BRAKE_LIGHT_Mode, char* displayed_text);
 void send_display(void);
 
 #endif /* INC_DISPLAY_INTERFACE_H_ */

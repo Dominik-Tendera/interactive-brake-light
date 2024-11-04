@@ -4,7 +4,8 @@
  *  Created on: Jul 22, 2024
  *      Author: Dominik
  */
-
+//every hex value is a row, and each letter box is 9 bits tall and 8 bits wide
+//however actual letter size is 7 bits tall and 5 bits wide
 
 const char fontChars[] = {
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,		// 0x20 ' '

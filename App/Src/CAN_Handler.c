@@ -13,18 +13,14 @@
 
 extern enum BRAKE_LIGHT_Display_t BRAKE_LIGHT_Display;
 
-static can_frame ACCU_FAN_SPEED_REQUEST;
 static can_frame BRAKE_LIGHT_FRAME;
 static can_frame HV_BMS_SLAVE_FRAME;
 static can_frame ACCU_FAN_SPEED;
+static can_frame ACCU_FAN_SPEED_REQUEST;
 
 void CAN_Handler_Init()
 {
-
 	CAN_Init(&hcan);
-
-	CAN_InitFrame(&ACCU_FAN_SPEED_REQUEST, &hcan, ACCU_FAN_SPEED_REQUEST_ID,
-	ACCU_FAN_SPEED_REQUEST_PERIOD, ACCU_FAN_SPEED_REQUEST_DLC);
 
 	CAN_InitFrame(&BRAKE_LIGHT_FRAME, &hcan, BRAKE_LIGHT_FRAME_ID,
 	BRAKE_LIGHT_FRAME_PERIOD, BRAKE_LIGHT_FRAME_DLC);
@@ -34,16 +30,19 @@ void CAN_Handler_Init()
 
 	CAN_InitFrame(&ACCU_FAN_SPEED, &hcan, ACCU_FAN_SPEED_ID,
 	ACCU_FAN_SPEED_PERIOD, ACCU_FAN_SPEED_DLC);
+
+	CAN_InitFrame(&ACCU_FAN_SPEED_REQUEST, &hcan, ACCU_FAN_SPEED_REQUEST_ID,
+	ACCU_FAN_SPEED_REQUEST_PERIOD, ACCU_FAN_SPEED_REQUEST_DLC);
 }
 
-enum BRAKE_LIGHT_Display_t BRAKE_LIGHT_GetDisplay(void)
+enum BRAKE_LIGHT_Display_t BRAKE_LIGHT_GetDisplay(void)								//Która opcja jest lepsza? chyba lepiej zachować return - TUTAJ CHYBA BLAD BO NADPISUJE EXTERNA I ROWNOCZESNIE ZWRACAN WARTOSC
 {
 	if (CAN_IsFrameActual(&BRAKE_LIGHT_FRAME))
 	{
 		BRAKE_LIGHT_Display = BRAKE_LIGHT_FRAME.core.data[0];		//0 = OFF
 		return BRAKE_LIGHT_Display;									//1 = ON
 	}																//2 = ERROR
-	BRAKE_LIGHT_Display = DISPLAY_ERROR;
+	BRAKE_LIGHT_Display = DISPLAY_ERROR;							//3 = ANIMATION
 	return BRAKE_LIGHT_Display;
 }
 
@@ -51,10 +50,10 @@ uint8_t ACCU_GetFanSpeed(uint8_t fan_speed)
 {
 	int fan_speed_temp = 0;
 	int speed_increase = 0;
-	static uint32_t latest_timestamp = 0;
-	if (latest_timestamp != ACCU_FAN_SPEED_REQUEST.recieve_time_ms)
+	static uint32_t latest_fan_timestamp = 0;
+	if (latest_fan_timestamp != ACCU_FAN_SPEED_REQUEST.recieve_time_ms)
 	{
-		latest_timestamp = ACCU_FAN_SPEED_REQUEST.recieve_time_ms;
+		latest_fan_timestamp = ACCU_FAN_SPEED_REQUEST.recieve_time_ms;
 		fan_speed_temp = ACCU_FAN_SPEED_REQUEST.core.data[1];
 		speed_increase = ACCU_FAN_SPEED_REQUEST.core.data[0];
 		if(fan_speed_temp < 0 && fan_speed_temp > 100)
@@ -91,4 +90,20 @@ void ACCU_SendFanSpeed(uint8_t fan_speed)
 	ACCU_FAN_SPEED.core.data[0] = fan_speed;
 	CAN_SendFrame_Periodically(&ACCU_FAN_SPEED);
 }
+
+//
+//uint16_t GetBrightness(void)
+//{
+//	uint16_t brightness = 500;
+//	static uint32_t latest_brithness_timestamp = 0;
+//	//if (latest_brithness_timestamp != (frame_name).recieve_time_ms)
+//	{
+//		//latest_brithness_timestamp = (frame_name).recieve_time_ms;
+//		if (brightness >= 0 && brightness <= 1000)
+//		{
+//			return brightness;
+//		}
+//	}
+//					//CZY MUSZE DODAĆ RETURNA?
+//}
 
