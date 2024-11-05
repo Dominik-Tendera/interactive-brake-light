@@ -16,6 +16,9 @@
 #define NUM_OF_PIXELS (128)
 #define INTERACTIVE_TIMEOUT (4*60*1000)
 #define CHARACTER_WIDTH (5)
+#define CHARACTER_HEIGHT (7)
+#define MAX_BRIGTHNESS (1000)
+#define MAX_FAN_SPEED (100)
 
 void set_brightness(uint16_t);
 void display_off(void);

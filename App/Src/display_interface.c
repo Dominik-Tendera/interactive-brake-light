@@ -14,14 +14,14 @@ extern const char fontChars[];
 uint8_t display_buffer[NUM_OF_COLUMNS];
 int16_t x = 2;
 int16_t y = 0;
-uint8_t whitespace = 1;
-uint32_t slide_delay = 30;
+uint8_t whitespace = 4;
+uint32_t slide_delay = 40;
 extern uint8_t timeout_flag;
 extern uint8_t display_change;
 
 void set_brightness(uint16_t value)
 {
-	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, 1000 - value);						//negation logic (brithness sets from 0 - OFF to 1000 - FULL)
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, MAX_BRIGTHNESS - value);						//negation logic (brithness sets from 0 - OFF to 1000 - FULL)
 }
 
 void set_buffer(uint8_t value)
@@ -52,46 +52,28 @@ void display_error(void)
 
 void set_one_pixel(uint8_t column, uint8_t row)
 {
-	if(row >= 0 && row < NUM_OF_ROWS && column >= 0 && column < NUM_OF_COLUMNS){
-		display_buffer[column] |= (1 << row);
+	if(row >= 0 && row < NUM_OF_ROWS && column >= 0 && column < NUM_OF_COLUMNS){			//this statement writes only the values that should be displayed
+		display_buffer[NUM_OF_COLUMNS - column - 1] |= (1 << (NUM_OF_ROWS - row - 1));		// CZY MOGA BYC MAGIC NUMBER  1
 	}
 }
 
 void draw_char(int x, int y, char character)
 {
-	for(uint8_t j = 0; j < 7; j++)
+	for(uint8_t font_row = 0; font_row < CHARACTER_HEIGHT; font_row++)
 	{
-		for(uint8_t i = 0; i < 8; i++)
+		for(uint8_t font_column = 0; font_column < CHARACTER_WIDTH; font_column++)
 		{
-			if(fontChars[(character-0x20)*9+1+j] & (1<<i))
+			if(fontChars[(character - 0x20) * CHARACTER_HEIGHT + font_row] & (1<<(font_column + 8 - CHARACTER_WIDTH)))		//CZY MOZNA UZYC 8 JAKO MAGIC NUMBER CZY DODAC NA PRZYKLAD MAKRO BYTE albo sizeof() * 8
 			{
-				set_one_pixel(x + (7 - i), y + j);
+				set_one_pixel(x + (CHARACTER_WIDTH - 1 - font_column), y + font_row);
 			}
 		}
 	}
 }
 
-//EDITED VERSION 03/11/
-//
-//void draw_char(int x, int y, char character)
-//{
-//	for(uint8_t font_row = 0; font_row < 7; font_row++)							//jak wywale z czcionki cały dwa wiersze 0x00 to można zastąpić 9 na 7 i 7 nazwać font height (define)
-//	{
-//		for(uint8_t font_column = 0; font_column < 8; font_column++) 			//tu chyba wystarczy isc po 5 bitach nie ośmiu (font width) a w 5 najstarszych jest zapisana litera więc dlatego przy zapisie litery jest odwrócona logika 7 -
-//		{																		//, żeby bity zerowe były na końcu, a nastepnie na nich nadpisywana następna litera która jest pisana co character widht + whitespace
-//			if(fontChars[(character - 0x20) * 9 + 1 + font_row] & (1<<font_column))
-//			{
-//				set_one_pixel(x + (7 - font_column), y + font_row);
-//			}
-//		}
-//	}
-//}
-//to jest z lapka
-
-
 void draw_string(int x, int y, char* string)
 {
-	for(uint16_t character_index = 0; character_index < strlen(string); character_index++)
+	for(int32_t character_index = 0; character_index < strlen(string); character_index++)
 	{
 		draw_char(x + (character_index * (CHARACTER_WIDTH + whitespace)), y, string[character_index]);
 	}
@@ -99,8 +81,8 @@ void draw_string(int x, int y, char* string)
 
 void display_text(char* displayed_text)
 {
-	int textLen = strlen(displayed_text) * (CHARACTER_WIDTH + whitespace);
-	if(x < -textLen)																	//this slides text thorugh the display
+	int32_t text_length = (int16_t)strlen(displayed_text) * (CHARACTER_WIDTH + whitespace);
+	if(x < (-text_length))																	//this slides text thorugh the display
 	{
 		x = NUM_OF_COLUMNS + 1;
 	}
@@ -108,7 +90,7 @@ void display_text(char* displayed_text)
 	set_buffer(0b00000000);
 	draw_string(x, y, displayed_text);
 	send_display();
-	HAL_Delay(slide_delay);										//REPLACE HALL_DELAY?
+	HAL_Delay(slide_delay);										//USUNAC HALL_DELAY
 }
 
 void reset_coordinates(void)

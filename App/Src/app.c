@@ -11,12 +11,12 @@
 #include "display_interface.h"
 
 const enum BRAKE_LIGHT_Mode_t BRAKE_LIGHT_Mode = INTERACTIVE_BRAKE_LIGHT;			//change brake light behaviour to be compliant with FSG Rules
-enum BRAKE_LIGHT_Display_t BRAKE_LIGHT_Display = DISPLAY_OFF;
+enum BRAKE_LIGHT_Display_t BRAKE_LIGHT_Display = DISPLAY_ANIMATION;
 char displayed_text[] = "AGH Racing RTE 3.0 \"NEMO\" <3";
-uint8_t timeout_flag = 1;													//when light display changes from OFF in INTERACTIVE mode to any other, this flag and 'display_change' are changed
-uint8_t display_change = 0;													//this is used for counting the constant time from entering DISPLAY_OFF, after which the text will show up
-static uint8_t fan_speed = 50;												//speed in % from 0-100%
-uint16_t brightness = 500;													//br
+uint8_t timeout_flag = 0;													//when light display changes from OFF in INTERACTIVE mode to any other, this flag and 'display_change' are changed
+uint8_t display_change = 1;													//this is used for counting the constant time from entering DISPLAY_OFF, after which the text will show up
+static uint8_t fan_speed = 50;												//set speed from 0-100%
+uint16_t brightness = 70;													//set brightness from 0-1000
 
 int mainApp(void)
 {
@@ -28,10 +28,10 @@ int mainApp(void)
 
 	while (1)
 	{
-		BRAKE_LIGHT_Display = BRAKE_LIGHT_GetDisplay();
-		fan_speed = ACCU_GetFanSpeed(fan_speed);					//CZY TE 3 LINIJKI CHOWAĆ DO FUNKCJI, TAK SAMO Z BRIGHTNESS?
-		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, 100 - fan_speed);		//negation logic
-		ACCU_SendFanSpeed(fan_speed);
+//		BRAKE_LIGHT_Display = BRAKE_LIGHT_GetDisplay();
+//		fan_speed = ACCU_GetFanSpeed(fan_speed);					//CZY TE 3 LINIJKI CHOWAĆ DO FUNKCJI, TAK SAMO Z BRIGHTNESS?
+//		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, MAX_FAN_SPEED - fan_speed);		//negation logic
+//		ACCU_SendFanSpeed(fan_speed);
 		//brightness = GetBrightness(brightness);
 		set_brightness(brightness);
 
