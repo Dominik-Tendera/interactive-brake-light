@@ -14,7 +14,7 @@
 #define NUM_OF_COLUMNS (14)
 #define NUM_OF_ROWS (8)
 #define NUM_OF_PIXELS (128)
-#define INTERACTIVE_TIMEOUT (4*60*1000)
+#define INTERACTIVE_TIMEOUT (5*1000)
 #define CHARACTER_WIDTH (5)
 #define CHARACTER_HEIGHT (7)
 #define MAX_BRIGTHNESS (1000)
@@ -25,8 +25,8 @@ void display_off(void);
 void display_on(void);
 void display_error(void);
 void one_pixel_on(uint8_t column, uint8_t row);
-void draw_char(int x, int y, char character);
-void draw_string(int x, int y, char* string);
+void draw_char(int16_t x, int8_t y, char character);
+void draw_string(int16_t x, int8_t y, char* string);
 void display_text(char* displayed_text);
 void conditional_display_off(enum BRAKE_LIGHT_Mode_t BRAKE_LIGHT_Mode, char* displayed_text);
 void send_display(void);

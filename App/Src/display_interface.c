@@ -14,8 +14,8 @@ extern const char fontChars[];
 uint8_t display_buffer[NUM_OF_COLUMNS];
 int16_t x = 2;
 int16_t y = 0;
-uint8_t whitespace = 4;
-uint32_t slide_delay = 40;
+uint8_t whitespace = 1;
+uint32_t slide_delay = 50;
 extern uint8_t timeout_flag;
 extern uint8_t display_change;
 
@@ -50,14 +50,15 @@ void display_error(void)
 	send_display();
 }
 
-void set_one_pixel(uint8_t column, uint8_t row)
+void set_one_pixel(uint8_t x, uint8_t y)
 {
-	if(row >= 0 && row < NUM_OF_ROWS && column >= 0 && column < NUM_OF_COLUMNS){			//this statement writes only the values that should be displayed
-		display_buffer[NUM_OF_COLUMNS - column - 1] |= (1 << (NUM_OF_ROWS - row - 1));		// CZY MOGA BYC MAGIC NUMBER  1
+	if(y >= 0 && y < NUM_OF_ROWS && x >= 0 && x < NUM_OF_COLUMNS) 				//this statement writes only the values that should be displayed
+	{
+		display_buffer[NUM_OF_COLUMNS - x - 1] |= (1 << (NUM_OF_ROWS - y - 1));		// CZY MOGA BYC MAGIC NUMBER  1
 	}
 }
 
-void draw_char(int x, int y, char character)
+void draw_char(int16_t x, int8_t y, char character)
 {
 	for(uint8_t font_row = 0; font_row < CHARACTER_HEIGHT; font_row++)
 	{
@@ -71,18 +72,26 @@ void draw_char(int x, int y, char character)
 	}
 }
 
-void draw_string(int x, int y, char* string)
+void draw_string(int16_t x, int8_t y, char* string)
 {
-	for(int32_t character_index = 0; character_index < strlen(string); character_index++)
+	//size_t time = HAL_GetTick();							//POPRAWIĆ KOD POD WZGLĘDEM OPTYMALIZACJI - TA PĘTLA JEST DO ZMIANY
+	for(int16_t character_index = 0; character_index < strlen(string); character_index++)
 	{
-		draw_char(x + (character_index * (CHARACTER_WIDTH + whitespace)), y, string[character_index]);
+		int16_t x_char_position = x + (character_index * (CHARACTER_WIDTH + whitespace));
+
+		if(y >= 0 && y < NUM_OF_ROWS && x_char_position >= -CHARACTER_WIDTH && x_char_position < (NUM_OF_COLUMNS + CHARACTER_WIDTH))		//warunek na wypisywanie liter znajdujących się w obrębie wyświetlacza
+		{
+			draw_char(x_char_position, y, string[character_index]);
+		}
 	}
+	//size_t actual_time = HAL_GetTick() - time;
+	//HAL_Delay(0.1);
 }
 
 void display_text(char* displayed_text)
 {
-	int32_t text_length = (int16_t)strlen(displayed_text) * (CHARACTER_WIDTH + whitespace);
-	if(x < (-text_length))																	//this slides text thorugh the display
+	int16_t text_length = (int16_t)strlen(displayed_text) * (CHARACTER_WIDTH + whitespace) + NUM_OF_COLUMNS;
+	if(x < (-text_length))																							//this slides text thorugh the display
 	{
 		x = NUM_OF_COLUMNS + 1;
 	}
@@ -115,6 +124,7 @@ void conditional_display_off(enum BRAKE_LIGHT_Mode_t BRAKE_LIGHT_Mode, char* dis
 			lastInteractiveTick = HAL_GetTick();
 			display_change = 0;
 			reset_coordinates();
+			set_buffer(0b00000000);
 		}
 		else if (timeout_flag)
 		{
