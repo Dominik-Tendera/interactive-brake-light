@@ -24,6 +24,7 @@ void set_brightness(uint16_t);
 void display_off(void);
 void display_on(void);
 void display_error(void);
+void display_animation(char*);
 void one_pixel_on(uint8_t column, uint8_t row);
 void draw_char(int16_t x, int8_t y, char character);
 void draw_string(int16_t x, int8_t y, char* string);

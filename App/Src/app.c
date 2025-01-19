@@ -5,18 +5,20 @@
  *      Author: Dominik
  */
 #include "main.h"
-#include "app.h"
+#include "app.h"xt
 #include "tim.h"
 #include "CAN_Handler.h"
 #include "display_interface.h"
 
-const enum BRAKE_LIGHT_Mode_t BRAKE_LIGHT_Mode = INTERACTIVE_BRAKE_LIGHT;			//change brake light behaviour to be compliant with FSG Rules
+//change light behaviour from interactive to be compliant with Formula Student Rules
+const enum BRAKE_LIGHT_Mode_t BRAKE_LIGHT_Mode = INTERACTIVE_BRAKE_LIGHT;
 enum BRAKE_LIGHT_Display_t BRAKE_LIGHT_Display = DISPLAY_OFF;
-char displayed_text[] = "AGH Racing RTE 3.0 \"NEMO\" * Valeo * New Era Materials * Ceratizit * APW * Superior Industries * Fundacja dla AGH * Simracing Dream * Rega Yacht * IAMG * Vivtek *";
-uint8_t timeout_flag = 0;													//when light display changes from OFF in INTERACTIVE mode to any other, this flag and 'display_change' are changed
-uint8_t display_change = 1;													//this is used for counting the constant time from entering DISPLAY_OFF, after which the text will show up
-static uint8_t fan_speed = 50;												//set speed from 0-100%
-uint16_t brightness = 60;													//set brightness from 0-1000
+//char displayed_text[] = "AGH Racing RTE 3.0 \"NEMO\" * Valeo * New Era Materials * Ceratizit * APW * Superior Industries * Fundacja dla AGH * Simracing Dream * Rega Yacht * IAMG * Vivtek *";
+char displayed_text[] = "AGH Racing RTE 3.0 \"NEMO\"";
+//set accumulator fan speed from 0-100%
+static uint8_t fan_speed = 50;
+//set display brightness from 0-100
+uint16_t brightness = 100;
 
 int mainApp(void)
 {
@@ -30,7 +32,8 @@ int mainApp(void)
 	{
 		BRAKE_LIGHT_Display = BRAKE_LIGHT_GetDisplay();
 		fan_speed = ACCU_GetFanSpeed(fan_speed);					//CZY TE 3 LINIJKI CHOWAĆ DO FUNKCJI, TAK SAMO Z BRIGHTNESS?
-		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, MAX_FAN_SPEED - fan_speed);		//negation logic
+		//negation logic
+		__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, MAX_FAN_SPEED - fan_speed);
 		ACCU_SendFanSpeed(fan_speed);
 		//brightness = GetBrightness(brightness);
 		set_brightness(brightness);
@@ -38,8 +41,6 @@ int mainApp(void)
 		switch(BRAKE_LIGHT_Display)
 		{
 		case DISPLAY_ON:
-			timeout_flag = 0;		//CZY TE FLAGI SCHOWAĆ DO FUNKCJI?
-			display_change = 1;
 			display_on();
 			break;
 
@@ -48,20 +49,15 @@ int mainApp(void)
 			break;
 
 		case DISPLAY_ERROR:
-			timeout_flag = 0;
-			display_change = 1;
 			display_error();
 			break;
 
 		case DISPLAY_ANIMATION:
 			if (BRAKE_LIGHT_Mode == INTERACTIVE_BRAKE_LIGHT)
 			{
-				timeout_flag = 0;
-				display_change = 1;
-				display_text(displayed_text);
+				display_animation(displayed_text);
 			}
 			break;
-
 		}
 	}
 	return 0;

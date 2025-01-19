@@ -10,18 +10,22 @@
 #include "spi.h"
 #include "tim.h"
 
+/*when light display changes from OFF in INTERACTIVE mode to any other, this flag and 'display_change' are changed
+this is used for counting the constant time from entering DISPLAY_OFF, after which the text will show up*/
+uint8_t timeout_flag = 0;
+uint8_t display_change = 1;
 extern const char fontChars[];
 uint8_t display_buffer[NUM_OF_COLUMNS];
 int16_t x = 2;
 int16_t y = 0;
 uint8_t whitespace = 1;
-uint32_t slide_delay = 50;
+uint32_t slide_delay = 60;
 extern uint8_t timeout_flag;
 extern uint8_t display_change;
 
 void set_brightness(uint16_t value)
 {
-	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, MAX_BRIGTHNESS - value);						//negation logic (brithness sets from 0 - OFF to 1000 - FULL)
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, MAX_BRIGTHNESS - value);						//negation logic (brithness sets from [0 - OFF] to [1000 - FULL])
 }
 
 void set_buffer(uint8_t value)
@@ -38,23 +42,35 @@ void display_off(void)
 	send_display();
 }
 
-void display_on(void){
+void display_on(void)
+{
+	timeout_flag = 0;
+	display_change = 1;
 	set_buffer(0b11111111);
 	send_display();
 }
 
 void display_error(void)
 {
+	timeout_flag = 0;
+	display_change = 1;
 	set_buffer(0b00000000);
-	draw_string(1, 0, "Er");
+	draw_string(2, 0, "Er");
 	send_display();
+}
+
+void display_animation(char* displayed_text)
+{
+	timeout_flag = 0;
+	display_change = 1;
+	display_text(displayed_text);
 }
 
 void set_one_pixel(uint8_t x, uint8_t y)
 {
 	if(y >= 0 && y < NUM_OF_ROWS && x >= 0 && x < NUM_OF_COLUMNS) 				//this statement writes only the values that should be displayed
 	{
-		display_buffer[NUM_OF_COLUMNS - x - 1] |= (1 << (NUM_OF_ROWS - y - 1));		// CZY MOGA BYC MAGIC NUMBER  1
+		display_buffer[NUM_OF_COLUMNS - x - 1] |= (1 << (NUM_OF_ROWS - y - 1));
 	}
 }
 
