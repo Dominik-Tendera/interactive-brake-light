@@ -9,6 +9,7 @@
 #include "app.h"
 #include "spi.h"
 #include "tim.h"
+#include "CAN_Handler.h"
 
 /*when light display changes from OFF in INTERACTIVE mode to any other, this flag and 'display_change' are changed
 this is used for counting the constant time from entering DISPLAY_OFF, after which the text will show up*/
@@ -23,9 +24,29 @@ uint32_t slide_delay = 60;
 extern uint8_t timeout_flag;
 extern uint8_t display_change;
 
+void initialize(void)
+{
+	CAN_Handler_Init();
+	HAL_TIM_Base_Start(&htim3);
+	HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_4);
+	HAL_TIM_Base_Start(&htim2);
+	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
+	display_static_text("ON");
+}
+
+void can_communication(enum BRAKE_LIGHT_Display_t* BRAKE_LIGHT_Display, uint8_t* fan_speed)
+{
+	*BRAKE_LIGHT_Display = BRAKE_LIGHT_GetDisplay();
+	*fan_speed = ACCU_GetFanSpeed(*fan_speed);
+
+	//negation logic
+	__HAL_TIM_SET_COMPARE(&htim2, TIM_CHANNEL_3, MAX_FAN_SPEED - *fan_speed);
+	ACCU_SendFanSpeed(*fan_speed);
+}
+
 void set_brightness(uint16_t value)
 {
-	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, MAX_BRIGTHNESS - value);						//negation logic (brithness sets from [0 - OFF] to [1000 - FULL])
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, MAX_BRIGTHNESS - (value*10));						//negation logic (brithness sets from [0 - OFF] to [1000 - FULL])
 }
 
 void set_buffer(uint8_t value)
@@ -52,10 +73,15 @@ void display_on(void)
 
 void display_error(void)
 {
+	display_static_text("Er");
+}
+
+void display_static_text(char* static_text)
+{
 	timeout_flag = 0;
 	display_change = 1;
-	set_buffer(0b00000000);
-	draw_string(2, 0, "Er");
+	set_buffer(0);
+	draw_string(2, 0, static_text);
 	send_display();
 }
 

@@ -20,11 +20,14 @@
 #define MAX_BRIGTHNESS (1000)
 #define MAX_FAN_SPEED (100)
 
-void set_brightness(uint16_t);
+void initialize(void);
+void can_communication(enum BRAKE_LIGHT_Display_t* BRAKE_LIGHT_Display, uint8_t* fan_speed);
+void set_brightness(uint16_t brightness);
 void display_off(void);
 void display_on(void);
 void display_error(void);
-void display_animation(char*);
+void display_static_text(char* static_text);
+void display_animation(char* displayed_text);
 void one_pixel_on(uint8_t column, uint8_t row);
 void draw_char(int16_t x, int8_t y, char character);
 void draw_string(int16_t x, int8_t y, char* string);
