@@ -12,7 +12,6 @@
 //change light behaviour from interactive to be compliant with Formula Student Rules
 const enum BRAKE_LIGHT_Mode_t BRAKE_LIGHT_Mode = INTERACTIVE_BRAKE_LIGHT;
 enum BRAKE_LIGHT_Display_t BRAKE_LIGHT_Display = DISPLAY_OFF;
-//char displayed_text[] = "AGH Racing RTE 3.0 \"NEMO\" * Valeo * New Era Materials * Ceratizit * APW * Superior Industries * Fundacja dla AGH * Simracing Dream * Rega Yacht * IAMG * Vivtek *";
 char displayed_text[] = "AGH Racing RTE 3.0 \"NEMO\"";
 //set accumulator fan speed from 0-100%
 static uint8_t fan_speed = 50;
@@ -52,3 +51,6 @@ int mainApp(void)
 	}
 	return 0;
 }
+
+//text for sponsors
+//char displayed_text[] = "AGH Racing RTE 3.0 \"NEMO\" * Valeo * New Era Materials * Ceratizit * APW * Superior Industries * Fundacja dla AGH * Simracing Dream * Rega Yacht * IAMG * Vivtek *";

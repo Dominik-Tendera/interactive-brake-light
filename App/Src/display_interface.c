@@ -46,7 +46,8 @@ void can_communication(enum BRAKE_LIGHT_Display_t* BRAKE_LIGHT_Display, uint8_t*
 
 void set_brightness(uint16_t value)
 {
-	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, MAX_BRIGTHNESS - (value*10));						//negation logic (brithness sets from [0 - OFF] to [1000 - FULL])
+	//negation logic (brithness sets from [0 - OFF] to [1000 - FULL])
+	__HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_4, MAX_BRIGTHNESS - (value*10));
 }
 
 void set_buffer(uint8_t value)
@@ -94,7 +95,8 @@ void display_animation(char* displayed_text)
 
 void set_one_pixel(uint8_t x, uint8_t y)
 {
-	if(y >= 0 && y < NUM_OF_ROWS && x >= 0 && x < NUM_OF_COLUMNS) 				//this statement writes only the values that should be displayed
+	//this statement writes only the values that should be displayed
+	if(y >= 0 && y < NUM_OF_ROWS && x >= 0 && x < NUM_OF_COLUMNS)
 	{
 		display_buffer[NUM_OF_COLUMNS - x - 1] |= (1 << (NUM_OF_ROWS - y - 1));
 	}
@@ -106,7 +108,7 @@ void draw_char(int16_t x, int8_t y, char character)
 	{
 		for(uint8_t font_column = 0; font_column < CHARACTER_WIDTH; font_column++)
 		{
-			if(fontChars[(character - 0x20) * CHARACTER_HEIGHT + font_row] & (1<<(font_column + 8 - CHARACTER_WIDTH)))		//CZY MOZNA UZYC 8 JAKO MAGIC NUMBER CZY DODAC NA PRZYKLAD MAKRO BYTE albo sizeof() * 8
+			if(fontChars[(character - 0x20) * CHARACTER_HEIGHT + font_row] & (1<<(font_column + 8 - CHARACTER_WIDTH)))
 			{
 				set_one_pixel(x + (CHARACTER_WIDTH - 1 - font_column), y + font_row);
 			}
@@ -121,7 +123,8 @@ void draw_string(int16_t x, int8_t y, char* string)
 	{
 		int16_t x_char_position = x + (character_index * (CHARACTER_WIDTH + whitespace));
 
-		if(y >= 0 && y < NUM_OF_ROWS && x_char_position >= -CHARACTER_WIDTH && x_char_position < (NUM_OF_COLUMNS + CHARACTER_WIDTH))		//warunek na wypisywanie liter znajdujących się w obrębie wyświetlacza
+		//warunek na wypisywanie liter znajdujących się w obrębie wyświetlacza
+		if(y >= 0 && y < NUM_OF_ROWS && x_char_position >= -CHARACTER_WIDTH && x_char_position < (NUM_OF_COLUMNS + CHARACTER_WIDTH))
 		{
 			draw_char(x_char_position, y, string[character_index]);
 		}
@@ -133,7 +136,8 @@ void draw_string(int16_t x, int8_t y, char* string)
 void display_text(char* displayed_text)
 {
 	int16_t text_length = (int16_t)strlen(displayed_text) * (CHARACTER_WIDTH + whitespace) + NUM_OF_COLUMNS;
-	if(x < (-text_length))																							//this slides text thorugh the display
+	//this slides text thorugh the display
+	if(x < (-text_length))
 	{
 		x = NUM_OF_COLUMNS + 1;
 	}
@@ -141,7 +145,8 @@ void display_text(char* displayed_text)
 	set_buffer(0b00000000);
 	draw_string(x, y, displayed_text);
 	send_display();
-	HAL_Delay(slide_delay);										//USUNAC HALL_DELAY
+	//TODO change delay to event driven
+	HAL_Delay(slide_delay);
 }
 
 void reset_coordinates(void)
@@ -150,7 +155,7 @@ void reset_coordinates(void)
 	y = 0;
 }
 
-void conditional_display_off(enum BRAKE_LIGHT_Mode_t BRAKE_LIGHT_Mode, char* displayed_text)			//CZY TE WARUNKI DOTYCZĄCE STANU POWINIENEM ZOSTAWIĆ W APP.C, żeby był tam widoczny warunek na podstawowe światło?
+void conditional_display_off(enum BRAKE_LIGHT_Mode_t BRAKE_LIGHT_Mode, char* displayed_text)
 {
 	static uint32_t lastInteractiveTick = 0;
 
@@ -184,7 +189,7 @@ void send_display(void)
 {
 	HAL_GPIO_WritePin(Latch_GPIO_Port, Latch_Pin, 0);
 	HAL_SPI_Transmit_DMA(&hspi1, display_buffer, sizeof(display_buffer));
-	HAL_Delay(1);																//POZBYC SIE TYCH DELAYOW
+	HAL_Delay(1);
 	HAL_GPIO_WritePin(Latch_GPIO_Port, Latch_Pin, 1);
 	HAL_Delay(1);
 	HAL_GPIO_WritePin(Latch_GPIO_Port, Latch_Pin, 0);
