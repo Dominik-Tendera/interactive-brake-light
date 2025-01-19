@@ -28,3 +28,5 @@ DISPLAY_ON and DISPLAY_ERROR works the same as in BASIC_LIGHT.
 Special font was implemented to the project so that there is a possibility to write any text in ASCII characters. 
 
 This work significantly enhanced the car’s visibility, functionality, and marketing appeal while adhering to the strict demands of Formula Student. Additionally, it features an option to inform the team about specific errors by displaying them using an implemented font.
+
+[Documentation for this project - Engineering thesis](https://www.overleaf.com/read/wbzyfypwmshw#70b27f)
